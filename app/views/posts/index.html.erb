@@ -1,0 +1,28 @@
+<h1 class="headLists">List of all posts on this site</h1>
+
+<table>
+  <tr class="thRow">
+    <th>Title</th>
+    <th>Body</th>
+    <th>Data</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% i=0 %>
+<% @posts.each do |post| i+=1; %>
+  <tr class="trPost<%= i%2==1?1:2 %>">
+    <td><%= link_to post.title, post %></td>
+    <td><%= post.body %></td>
+    <td><%= post.data %></td>
+    <td><%= link_to 'Show', post %></td>
+    <td><%= link_to 'Edit', edit_post_path(post) %></td>
+    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
