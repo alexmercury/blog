@@ -3,7 +3,8 @@ class Post < ActiveRecord::Base
   
   has_many :comments
   
+  #default_scope { where(" title  NOT LIKE '%hidden%' ")}
   
-  default_scope { where(" title  NOT LIKE '%hidden%' ")}
+  validates_presence_of :body, :data, :title
   
 end

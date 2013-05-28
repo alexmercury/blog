@@ -1,3 +1,15 @@
+<div>
+<% if user_signed_in? %>
+<%= current_user.email %>
+<%= link_to "Выход", destroy_user_session_path, method:  :delete,
+                                         confirm: "You sure?"%>
+
+<% else %>
+<%=link_to 'Войти', new_user_session_path%>
+<%=link_to 'Регистрация', new_user_registration_path %>
+<% end %>
+</div>
+
 <h1 class="headLists">List of all posts on this site</h1>
 
 <table>

@@ -20,8 +20,8 @@
   <% @post.comments.each do |comment| %>
   <p><%= comment.text%></p>
 	<% end %>
-	
 	<%= form_for [@post, @post.comments.build] do |f| %>
+	
 	<p><%= f.text_area :text, :size => '40x10'%></p>
 	<p><%= f.submit "add comment" %></p>
 	<% end %>

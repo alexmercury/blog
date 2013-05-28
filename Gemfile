@@ -36,3 +36,5 @@ gem 'jquery-rails'
 
 # To use debugger
 # gem 'debugger'
+gem "devise", "~> 3.0.0.rc"
+
