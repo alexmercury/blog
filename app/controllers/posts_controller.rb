@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   # GET /posts.json
   def index
     @posts = Post.all
-    @posts.delete_if {|post| post.title.include? 'hidden' }# удаляем если в title есть hidden
+    #@posts.delete_if {|post| post.title.include? 'hidden' }# удаляем если в title есть hidden
 
     respond_to do |format|
       format.html # index.html.erb
