@@ -1,31 +1,57 @@
-<p id="notice"><%= notice %></p>
+<div id="main">
+  <header>
+  </header>
+  <div id="site_content">
+    <div id="sidebar_container">
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+      <div class="sidebar">
 
-<p>
-  <b>Body:</b>
-  <%= @post.body %>
-</p>
+        <%= render 'user' %>
 
-<p>
-  <b>Data:</b>
-  <%= @post.data %>
-</p>
+      </div>
 
-<p>
-	<b>comments</b>
-  <% @post.comments.each do |comment| %>
-  <p><%= comment.text%></p>
-	<% end %>
-	<%= form_for [@post, @post.comments.build] do |f| %>
-	
-	<p><%= f.text_area :text, :size => '40x10'%></p>
-	<p><%= f.submit "add comment" %></p>
-	<% end %>
-</p>
+    </div>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+    <div class="content">
+
+      <p id="notice"><%= notice %></p>
+
+      <p>
+        <b>Title:</b>
+        <%= @post.title %>
+      </p>
+
+      <p>
+        <b>Body:</b>
+        <%= @post.body %>
+      </p>
+
+      <p>
+        <b>Data:</b>
+        <%= @post.data %>
+      </p>
+
+      <p>
+        <b>comments</b>
+        <% @post.comments.each do |comment| %>
+          <p><%= comment.text%></p>
+          <p><%= comment.user_id%></p>
+      <% end %>
+      <%= form_for [@post, @post.comments.build] do |f| %>
+          <p><%= f.text_area :text, :size => '40x10'%></p>
+          <p><%= f.submit "add comment" %></p>
+      <% end %>
+      </p>
+
+      <%= link_to 'Edit', edit_post_path(@post) %> |
+      <%= link_to 'Back', posts_path %>
+
+
+    </div>
+
+  </div>
+
+  <footer>
+
+  </footer>
+</div>

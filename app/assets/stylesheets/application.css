@@ -11,3 +11,81 @@
  *= require_self
  *= require_tree .
  */
+article, aside, figure, footer, header, hgroup, nav, section {
+    display:block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #F9F9F9;
+    color: #444;
+}
+
+p {
+    padding: 0 0 16px 0;
+    line-height: 1.7em;
+}
+
+header {
+    background-color: #3C3B33;
+    height: 120px;
+}
+
+#site_content {
+    max-width: 1600px;
+    overflow: hidden;
+    margin: 0px auto 0 auto;
+    padding: 15px 0 25px 0;
+}
+
+#sidebar_container {
+    float: right;
+    width: 234px;
+}
+
+.sidebar {
+    width: 200px;
+    margin: 0;
+    background: #ddd; /* Show a solid color for older browsers */
+    background: -moz-linear-gradient(#fff, #E6E4D4);
+    background: -o-linear-gradient(#fff, #E6E4D4);
+    background: -webkit-linear-gradient(#fff, #E6E4D4);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+    border: 1px solid #eee;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border: 7px 7px 7px 7px;
+    padding: 0 15px 5px 13px;
+}
+
+.content {
+    text-align: center;
+    margin: 0 240px 15px 0;
+    padding: 14px 0 20px 0;
+    background: #ddd; /* Show a solid color for older browsers */
+    background: -moz-linear-gradient(#fff, #E6E4D4);
+    background: -o-linear-gradient(#fff, #E6E4D4);
+    background: -webkit-linear-gradient(#fff, #E6E4D4);
+    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
+    border: 1px solid #eee;
+    border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    -webkit-border: 7px 7px 7px 7px;
+}
+
+footer {
+    height: 50px;
+    padding: 28px 0 5px 0;
+    text-align: center;
+    background: #3C3B33;
+    color: #FFF;
+    margin: 0;
+    border-top: 6px solid #CEC240;
+}
+
+

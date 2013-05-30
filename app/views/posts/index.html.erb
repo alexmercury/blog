@@ -1,40 +1,56 @@
-<div>
-<% if user_signed_in? %>
-<%= current_user.email %>
-<%= link_to "Выход", destroy_user_session_path, method:  :delete,
-                                         confirm: "You sure?"%>
+<div id="main">
+  <header>
+  </header>
+  <div id="site_content">
+    <div id="sidebar_container">
 
-<% else %>
-<%=link_to 'Войти', new_user_session_path%>
-<%=link_to 'Регистрация', new_user_registration_path %>
-<% end %>
+      <div class="sidebar">
+
+        <%= render 'user' %>
+
+      </div>
+
+    </div>
+
+    <div class="content">
+
+      <h1 class="headLists">List of all posts on this site</h1>
+
+      <table>
+        <tr class="thRow">
+          <th>User</th>
+          <th>Title</th>
+          <th>Body</th>
+          <th>Data</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+
+        <% i=0 %>
+        <% @posts.each do |post| i+=1; %>
+            <tr class="trPost<%= i%2==1?1:2 %>">
+              <td><%= post.user_id %></td>
+              <td><%= link_to post.title, post %></td>
+              <td><%= post.body[1..3] %></td>
+              <td><%= post.data %></td>
+              <td><%= link_to 'Показать', post %></td>
+              <td><%= link_to 'Редактировать', edit_post_path(post) %></td>
+              <td><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            </tr>
+        <% end %>
+      </table>
+
+      <br />
+
+      <%= link_to 'New Post', new_post_path %>
+
+
+    </div>
+
+  </div>
+
+  <footer>
+
+  </footer>
 </div>
-
-<h1 class="headLists">List of all posts on this site</h1>
-
-<table>
-  <tr class="thRow">
-    <th>Title</th>
-    <th>Body</th>
-    <th>Data</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% i=0 %>
-<% @posts.each do |post| i+=1; %>
-  <tr class="trPost<%= i%2==1?1:2 %>">
-    <td><%= link_to post.title, post %></td>
-    <td><%= post.body %></td>
-    <td><%= post.data %></td>
-    <td><%= link_to 'Show', post %></td>
-    <td><%= link_to 'Edit', edit_post_path(post) %></td>
-    <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Post', new_post_path %>

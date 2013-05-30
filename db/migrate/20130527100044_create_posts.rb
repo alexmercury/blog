@@ -6,6 +6,7 @@ class CreatePosts < ActiveRecord::Migration
       t.datetime :data
 
       t.timestamps
-    end
+    end  
+    
   end
 end

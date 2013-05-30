@@ -1,0 +1,14 @@
+<% if user_signed_in? %>
+   <h1>USER</h1>
+   <b>Вы вошли как:</b>
+   <%= current_user.email %>
+   <b>последний визит:</b>
+   <%= current_user.last_sign_in_at %>
+   <br/>
+   <%= link_to "Выйти", destroy_user_session_path, method:  :delete, confirm: "You sure?" %>
+<% else %>
+   <h1>LogIn</h1><br/>
+    <%=link_to 'Войти', new_user_session_path%>
+    <br/>
+    <%=link_to 'Регистрация', new_user_registration_path %>
+<% end %>

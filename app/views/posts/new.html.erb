@@ -1,7 +1,32 @@
-<h1>New post</h1>
+<div id="main">
+  <header>
+  </header>
+  <div id="site_content">
+    <div id="sidebar_container">
 
-<img class="rubyImg" src="/ruby.png" alt="ruby">
+      <div class="sidebar">
 
-<%= render 'form' %>
+        <%= render 'user' %>
 
-<%= link_to 'Back', posts_path %>
+      </div>
+
+    </div>
+
+    <div class="content">
+
+      <h1>New post</h1>
+
+      <%= render 'form' %>
+
+      <img class="rubyImg" src="/ruby.png" alt="ruby">
+
+      <%= link_to 'Back', posts_path %>
+
+    </div>
+
+  </div>
+
+  <footer>
+
+  </footer>
+</div>
