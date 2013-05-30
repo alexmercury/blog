@@ -33,12 +33,14 @@
               <td><%= link_to post.title, post %></td>
               <td><%= post.body[1..3] %></td>
               <td><%= post.data %></td>
-              <% if current_user.id == post.user_id %>
-              <td><%= link_to 'Редактировать', edit_post_path(post) %></td>
-              <td><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% else %>
-              <td></td>
-              <td></td>
+              <% if user_signed_in? %>
+                  <% if current_user.id == post.user_id %>
+                  <td><%= link_to 'Редактировать', edit_post_path(post) %></td>
+                  <td><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <% else %>
+                  <td></td>
+                  <td></td>
+                  <% end %>
               <% end %>
             </tr>
         <% end %>

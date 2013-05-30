@@ -36,6 +36,7 @@
         <% @post.comments.each do |comment| %>
           <p><%= comment.text%></p>
           <p><%= comment.user_id%></p>
+          <%= link_to 'Удалить', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
       <%= form_for [@post, @post.comments.build] do |f| %>
           <p><%= f.text_area :text, :size => '40x10'%></p>
