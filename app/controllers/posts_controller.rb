@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.page(params[:page]).per(3)
     #@posts.delete_if {|post| post.title.include? 'hidden' }# удаляем если в title есть hidden
 
     respond_to do |format|

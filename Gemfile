@@ -39,3 +39,7 @@ gem 'jquery-rails'
 # gem 'debugger'
 gem "devise", "~> 3.0.0.rc"
 
+gem 'sass-rails', '~> 3.2.3'
+gem 'bootstrap-sass', '~> 2.3.1.2'
+gem 'kaminari'
+

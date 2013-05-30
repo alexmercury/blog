@@ -7,6 +7,7 @@ Blog1::Application.routes.draw do
   get "comments/destroy"
 
   resources :posts do
+    get 'page/:page', :action => :index, :on => :collection
   	resources :comments
   end
 

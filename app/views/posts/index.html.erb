@@ -16,7 +16,9 @@
 
       <h1 class="headLists">List of all posts on this site</h1>
 
-      <table>
+      <%= paginate @posts %>
+
+      <table class="table table-bordered table-hover table-condensed">
         <tr class="thRow">
           <th>User</th>
           <th>Title</th>
@@ -45,7 +47,7 @@
             </tr>
         <% end %>
       </table>
-
+      <%= paginate @posts %>
       <br />
 
       <%= link_to 'New Post', new_post_path %>
