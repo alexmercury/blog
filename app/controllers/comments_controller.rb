@@ -4,11 +4,11 @@ class CommentsController < ApplicationController
 
   def create
 
-  	@post = Post.find(params[:post_id])
-  	@comment = @post.comments.build(params[:comment])
+    @post = Post.find(params[:post_id])
+    @comment = @post.comments.build(params[:comment])
     @comment.user_id = current_user.id
 
-  	@comment.save
+    @comment.save
 
 
 
@@ -17,10 +17,8 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = current_user.comments.find(params[:id])
-
     @comment.destroy
 
-    @post = Post.find(params[:post_id])
-    redirect_to @post
+    redirect_to post_path(params[:post_id])
   end
 end
