@@ -7,16 +7,10 @@
     per_page:      number of items to fetch per page
     remote:        data-remote
 -%>
-<span class="page<%= ' current' if page.current? %>">
-
-
-  <%= link_to_unless page.current?, page, url, :class => 'btn', :remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil %>
-</span>
-
 <% if  page.current? %>
     <span class="btn disabled">
-        <%= link_to_unless %>
-      </span>
+        <%= link_to_unless page.current?, page, url, :class => 'btn', :remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil %>
+    </span>
 <% else %>
     <%= link_to_unless page.current?, page, url, :class => 'btn', :remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil %>
 <% end  %>
