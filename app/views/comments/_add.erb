@@ -1,9 +1,9 @@
-<div>
+<div class="breadcrumb">
 
 <%= form_for [@post, @post.comments.build], :class=>'btn-group' do |f| %>
-      <%= f.submit "add comment",:class=>'btn' %>
-      <%= f.text_area :text, :size => '40x10', :class=>''%>
-    <%= f.submit "add comment",:class=>'btn' %>
+
+      <%= f.text_area :text, :rows => '3', :placeholder=>''%>
+    <%= f.submit 'add', :class=>'btn'%>
 <% end %>
 
 </div>

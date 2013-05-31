@@ -15,7 +15,7 @@
         <td><%= comment.text%></td>
         <% if current_user.id == comment.user_id %>
         <td class="user_td">
-          <%= link_to [@post, comment], method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn', :title => 'Удалить комментарий' do %>
+          <%= link_to [@post, comment], method: :delete, data: { confirm: 'Вы уверены, что хотите удалить коментарий ?' },:class => 'btn', :title => 'Удалить комментарий' do %>
             <i class="icon-remove"></i>
           <% end %>
         </td>
