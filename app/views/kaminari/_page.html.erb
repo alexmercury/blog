@@ -8,7 +8,7 @@
     remote:        data-remote
 -%>
 <% if  page.current? %>
-    <span class="btn disabled">
+    <span class="btn btn-inverse disabled">
         <%= link_to_unless page.current?, page, url, :class => 'btn', :remote => remote, :rel => page.next? ? 'next' : page.prev? ? 'prev' : nil %>
     </span>
 <% else %>

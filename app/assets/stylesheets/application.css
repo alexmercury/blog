@@ -90,4 +90,7 @@ footer {
     border-top: 6px solid #CEC240;
 }
 
-
+table td.user_td{
+    text-align: center;
+    width: 30px;
+}

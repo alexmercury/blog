@@ -1,0 +1,28 @@
+<table class="table table-striped table-bordered">
+  <thead>
+  <tr>
+    <th>user id</th>
+    <th>user email</th>
+    <th>comment</th>
+    <th></th>
+  </tr>
+  <thead>
+  <tbody>
+    <% @post.comments.each do |comment| %>
+      <tr>
+        <td><%= comment.user_id%></td>
+        <td><%= comment.user.email%></td>
+        <td><%= comment.text%></td>
+        <% if current_user.id == comment.user_id %>
+        <td class="user_td">
+          <%= link_to [@post, comment], method: :delete, data: { confirm: 'Are you sure?' },:class => 'btn', :title => 'Удалить комментарий' do %>
+            <i class="icon-remove"></i>
+          <% end %>
+        </td>
+        <% else %>
+          <td></td>
+        <% end %>
+      </tr>
+    <% end %>
+  <tbody>
+</table>
