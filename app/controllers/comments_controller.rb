@@ -1,12 +1,16 @@
 class CommentsController < ApplicationController
 
-  before_filter :authenticate_user!, :except => []
+  before_filter :authenticate_user!, :except => [:create]
 
   def create
 
     post = Post.find(params[:post_id])
     comment = post.comments.build(params[:comment])
-    comment.user_id = current_user.id
+    if user_signed_in?
+      comment.user_id = current_user.id
+    else
+      comment.user_id = 0
+    end
     comment.save
 
   	redirect_to post
