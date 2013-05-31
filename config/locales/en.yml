@@ -3,3 +3,12 @@
 
 en:
   hello: "Hello world"
+
+  views:
+    pagination:
+      previous: '<i class="icon-chevron-left"></i>'
+      next: '<i class="icon-chevron-right"></i>'
+      first: '<i class="icon-fast-backward"></i>'
+      last: '<i class="icon-fast-forward"></i>'
+      truncate: '...'
+

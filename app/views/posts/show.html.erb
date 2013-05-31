@@ -6,7 +6,7 @@
 
       <div class="sidebar">
 
-        <%= render 'user' %>
+        <%= render :partial => '/base/user'%>
 
       </div>
 
@@ -36,6 +36,7 @@
         <% @post.comments.each do |comment| %>
           <p><%= comment.text%></p>
           <p><%= comment.user_id%></p>
+          <p><%= comment.user.email%></p>
           <%= link_to 'Удалить', [@post, comment], method: :delete, data: { confirm: 'Are you sure?' } %>
       <% end %>
       <%= form_for [@post, @post.comments.build] do |f| %>
