@@ -5,9 +5,10 @@ h1.headLists{
   color:#228B22;
 }
 
-table{
-  margin: auto;
-  border-spacing:0;
+table.blog{
+  background-image: url("/assets/blogContent.png");
+  margin: 10px 20px 20px 20px;
+  width: auto;
 }
 
 .thRow{

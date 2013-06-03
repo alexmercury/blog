@@ -36,11 +36,11 @@
      encoding: utf8
      username:
      password:
-     database: blog15_test
+     database: blog_test
 
    production:
      adapter: postgresql
      encoding: utf8
      username:
      password:
-     database: blog15_production
+     database: blog_production

@@ -1,0 +1,31 @@
+%div.sidebar_container
+  %div.sidebar= render :partial => "/base/user"
+%div.content
+  %h1.headLists List of all posts on this site
+  %span= paginate @posts,:window => 1
+  %table{ :class => "table table-bordered table-hover blog"}
+    %thead
+      %tr.success
+        %th User
+        %th Title
+        %th Body
+        %th Data
+        -if user_signed_in?
+          %th
+    %tbody
+      - @posts.each do |post|
+        %tr
+          %td= post.user_id
+          %td= link_to post.title, post
+          %td= post.body[1..3]
+          %td= post.data
+          - if user_signed_in?
+            - if current_user.id == post.user_id
+              %td
+                %span.btn-group
+                  = link_to edit_post_path(post), :class => 'btn', :title => 'Редактировать пост ' + post.title do
+                    %i.icon-pencil
+                  = link_to post, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn', :title => 'Удалить пост ' + post.title do
+                    %i.icon-remove
+            - else
+              %td

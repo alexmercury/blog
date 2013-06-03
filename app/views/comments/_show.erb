@@ -1,4 +1,4 @@
-<table class="table table-striped table-bordered">
+<table class="table table-bordered">
   <thead>
   <tr>
     <th>user id</th>
@@ -11,10 +11,14 @@
     <% @post.comments.each do |comment| %>
       <tr>
         <td><%= comment.user_id%></td>
-        <td><%= comment.user.email%></td>
+        <% if comment.user_id == 0 %>
+          <td>gost@mail.com</td>
+        <% else %>
+          <td><%= comment.user.email%></td>
+        <% end %>
         <td><%= comment.text%></td>
         <% if user_signed_in? %>
-          <% if current_user.id == comment.user_id %>
+          <% if current_user.id == comment.user_id or  comment.user_id == 0 %>
           <td class="user_td">
             <%= link_to [@post, comment], method: :delete, data: { confirm: 'Вы уверены, что хотите удалить коментарий ?' },:class => 'btn', :title => 'Удалить комментарий' do %>
               <i class="icon-remove"></i>

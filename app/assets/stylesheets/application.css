@@ -17,36 +17,38 @@ article, aside, figure, footer, header, hgroup, nav, section {
     display:block;
 }
 
-body {
+body.blog {
     margin: 0;
     padding: 0;
-    background: #F9F9F9;
+    background: #000000;
     color: #444;
+    background-image: url("/assets/blogBody.png");
+
 }
 
-p {
-    padding: 0 0 16px 0;
-    line-height: 1.7em;
-}
+header{
 
-header {
+    margin: 0 20px 20px 20px;
+    border-radius: 0 0 30px 30px;
+    /*opacity: 0.6; */
+    background-image: url("/assets/blogHeader.png");
     background-color: #3C3B33;
-    height: 120px;
+    height: 100px;
+
 }
 
-#site_content {
-    max-width: 1600px;
-    overflow: hidden;
-    margin: 0px auto 0 auto;
-    padding: 15px 20px;
+div.blogContent{
+    display: block;
+    margin: 0 20px 70px 20px;
+    padding: 0;
 }
 
-#sidebar_container {
+div.sidebar_container {
     float: right;
     width: 234px;
 }
 
-.sidebar {
+div.sidebar {
     width: 200px;
     margin: 0;
     background: #ddd; /* Show a solid color for older browsers */
@@ -65,32 +67,28 @@ header {
 
 .content {
     text-align: center;
-    margin: 0 240px 15px 0;
-    padding: 14px 0 20px 0;
+    margin: 0 240px 0 0;
+    padding: 20px;
     background: #ddd; /* Show a solid color for older browsers */
-    background: -moz-linear-gradient(#fff, #E6E4D4);
-    background: -o-linear-gradient(#fff, #E6E4D4);
-    background: -webkit-linear-gradient(#fff, #E6E4D4);
-    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
     border: 1px solid #eee;
-    border-radius: 7px 7px 7px 7px;
-    -moz-border-radius: 7px 7px 7px 7px;
-    -webkit-border: 7px 7px 7px 7px;
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border: 20px;
+    background-image: url("/assets/blogContent1.png");
 }
 
 footer {
     height: 50px;
-    padding: 28px 0 5px 0;
+    width: 100%;
     text-align: center;
-    background: #3C3B33;
-    color: #FFF;
+    color: #3C3B33;
+    border-top: 6px solid #b4b4b4;
+    background-color: #3C3B33;
+    background-image: url("/assets/blogHeader.png");
     margin: 0;
-    border-top: 6px solid #CEC240;
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
 }
 
-table td.user_td{
-    text-align: center;
-    width: 30px;
-}
+
