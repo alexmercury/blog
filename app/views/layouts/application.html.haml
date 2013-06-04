@@ -6,7 +6,7 @@
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body.blog
-    %header
+    %header= render :partial => "/base/user_menu"
     %div.blogContent
       = yield
     %footer

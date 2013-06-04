@@ -1,0 +1,17 @@
+- if user_signed_in?
+  %h1 USER
+  %b Вы вошли как:
+  = current_user.email
+  %b последний визит:
+  = current_user.last_sign_in_at
+  %br
+  = link_to "Выйти", destroy_user_session_path, method:  :delete, confirm: "You sure?"
+-else
+  %h1 LogIn
+  =link_to 'Войти', new_user_session_path
+  %br
+  =link_to 'Регистрация', new_user_registration_path
+
+
+
+

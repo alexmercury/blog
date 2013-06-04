@@ -1,0 +1,38 @@
+%div{ :class => 'btn-group'}
+  - if user_signed_in?
+    %a{ :class => "btn btn-inverse", :href => "#"}
+      %i{ :class => "icon-user icon-white"}
+      = current_user.user_name
+    %a{ :class => 'btn btn-inverse dropdown-toggle', :data => { :toggle => 'dropdown'}, :href => "#"}
+      %span.caret
+    %ul{ :class => "dropdown-menu"}
+      %li
+        %a{ :href => "#"}
+          %i{ :class => "icon-pencil"}
+          %span Edit
+      %li
+        %a{ :href => "#"}
+          %i{ :class => "icon-trash"}
+          %span Delete
+      %li
+        %a{ :title => 'Если вы уже зарегистрированны !', :href => "#"}
+          %i{ :class => "icon-ban-circle"}
+          %span Ban
+      %li{ :class => "divider"}
+      %li
+        = link_to destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены, что хотите выйти из профиля ?' }, :title => 'Выход из профиля' do
+          %i.icon-off
+          Выйти
+  - else
+    %a{ :class => "btn btn-inverse dropdown-toggle",:data => { :toggle => 'dropdown'}, :href => ''}
+      %i{ :class => "icon-user icon-white"}
+      Войдите или зарегистрируйтесь
+    %ul{ :class => "dropdown-menu"}
+      %li
+        %a{ :href => "#", :title => 'Если вы уже зарегистрированны !', :href => (new_user_session_path)}
+          %i{ :class => "icon-user"}
+          Войти
+      %li
+        %a{ :href => "#", :title => 'Вы еще не зарегистрированны ?', :href => (new_user_registration_path)}
+          %i{ :class => "icon-play"}
+          Регистрация

@@ -1,6 +1,18 @@
   <div id="sidebar_container">
     <div class="sidebar">
         <%= render :partial => '/base/user'%>
+
+      <div class="btn-group">
+        <a class="btn btn-inverse" href="#"><i class="icon-user icon-white"></i> User</a>
+        <a class="btn btn-inverse dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a href="#"><i class="icon-pencil"></i> Edit</a></li>
+          <li><a href="#"><i class="icon-trash"></i> Delete</a></li>
+          <li><a href="#"><i class="icon-ban-circle"></i> Ban</a></li>
+          <li class="divider"></li>
+          <li><a href="#"><i class="i"></i> Make admin</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 
