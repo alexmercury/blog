@@ -1,5 +1,5 @@
 %h1.headLists List of all posts on this site
-%span= paginate @posts,:window => 1
+%span.post-paginate= paginate @posts,:window => 1
 - @posts.each do |post|
   %div.post
     %div.post-header

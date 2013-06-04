@@ -1,0 +1,9 @@
+- if user_signed_in?
+  %h2 Мои посты
+  %ul{ :class => 'nav nav-pills'}
+    - current_user.posts.each do |post|
+      %li
+        = link_to post.title, post
+        %br
+-else
+  %div У вас нет постов

@@ -114,6 +114,10 @@ table.post-title{
     margin-right: 20px;
 }
 
+post-paginate{
+    margin:0 auto;
+}
+
 footer {
     height: 50px;
     width: 100%;
