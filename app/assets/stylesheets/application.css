@@ -66,15 +66,52 @@ div.sidebar {
 }
 
 .content {
-    text-align: center;
     margin: 0 240px 0 0;
-    padding: 20px;
+    padding: 0;
+}
+
+.post
+{
+    text-align: center;
     background: #ddd; /* Show a solid color for older browsers */
-    border: 1px solid #eee;
-    border-radius: 20px;
-    -moz-border-radius: 20px;
-    -webkit-border: 20px;
+    border: 2px solid #000;
+    border-radius: 20px 20px 20px 20px;
+    -moz-border-radius: 20px 20px 20px 20px;
+    -webkit-border: 20px 20px 20px 20px;
     background-image: url("/assets/blogContent1.png");
+    margin-bottom: 20px;
+}
+
+.post-header{
+    display: block;
+    position: relative;
+    right: 0px;
+    top: 0px;
+    border-bottom: 2px solid #000;
+    background-color: #3C3B33;
+    width: 100%;
+    border-radius: 20px 20px 0px 0px;
+    -moz-border-radius: 20px 20px 0px 0px;
+    -webkit-border: 20px 20px 0px 0px;
+    background-image: url("/assets/blogHeader.png");
+    padding: 10px 0;
+}
+
+table.post-title{
+    margin: 0px 20px 0px 20px;
+    color: #ffffff;
+    /*width: 50px;*/
+    width: 80%;
+}
+
+.post-content{
+    margin: 10px 20px 10px 20px;
+}
+
+.post-menu{
+    text-align: left;
+    float: right;
+    margin-right: 20px;
 }
 
 footer {
