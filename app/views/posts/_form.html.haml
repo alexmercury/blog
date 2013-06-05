@@ -15,4 +15,10 @@
     = f.label :data
     = f.datetime_select :data
   %div.field
-    = f.submit  :class => 'btn btn-primary'
+    - f.fields_for :tags do  |addtag|
+      = addtag.label :content, 'Tag'
+      = addtag.text_field :content
+
+
+  %div.field
+    = f.submit :class => 'btn btn-primary'

@@ -5,5 +5,11 @@
 %div.content
   = render 'form'
   = link_to 'Back', posts_path
+-# form_for [@post, @post.tags.build] do |f|
+    = f.text_area :cont, :rows => '3'
+    = f.submit 'add', :class=>'btn'
+    # <img class="rubyImg" src="/ruby.png" alt="ruby">
+    <%= form_for [@post, @post.bcomments.build], :class=>'btn-group' do |f| %>
 
--# <img class="rubyImg" src="/ruby.png" alt="ruby">
+        <%= f.text_area :text, :rows => '3', :placeholder=>''%>
+      <%= f.submit 'add', :class=>'btn'%>

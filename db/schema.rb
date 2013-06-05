@@ -72,15 +72,15 @@ ActiveRecord::Schema.define(:version => 20130605113116) do
     t.integer  "bcomments_count", :default => 0
   end
 
-  create_table "posts_to_tags", :force => true do |t|
-    t.integer  "id_post"
-    t.integer  "id_tag"
+  create_table "tags", :force => true do |t|
+    t.string   "cont"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
-  create_table "tags", :force => true do |t|
-    t.string   "cont"
+  create_table "uniteds", :force => true do |t|
+    t.integer  "id_posts"
+    t.integer  "id_tags"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
