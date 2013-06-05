@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604151011) do
+ActiveRecord::Schema.define(:version => 20130605113116) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(:version => 20130604151011) do
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
 
+  create_table "bcomments", :force => true do |t|
+    t.integer  "post_id"
+    t.text     "text"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+    t.integer  "user_id"
+  end
+
   create_table "comments", :force => true do |t|
     t.integer  "post_id"
     t.text     "text"
@@ -58,10 +66,10 @@ ActiveRecord::Schema.define(:version => 20130604151011) do
     t.string   "title"
     t.text     "body"
     t.datetime "data"
-    t.datetime "created_at",                    :null => false
-    t.datetime "updated_at",                    :null => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
     t.integer  "user_id"
-    t.integer  "comments_count", :default => 0
+    t.integer  "bcomments_count", :default => 0
   end
 
   create_table "posts_to_tags", :force => true do |t|
@@ -91,8 +99,8 @@ ActiveRecord::Schema.define(:version => 20130604151011) do
     t.datetime "created_at",                             :null => false
     t.datetime "updated_at",                             :null => false
     t.string   "user_name"
-    t.integer  "comments_count",         :default => 0
     t.integer  "posts_count",            :default => 0
+    t.integer  "bcomments_count",        :default => 0
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

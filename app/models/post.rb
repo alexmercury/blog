@@ -1,7 +1,7 @@
 class Post < ActiveRecord::Base
   attr_accessible :body, :data, :title
   
-  has_many :comments, :dependent => :destroy
+  has_many :bcomments, :dependent => :destroy
   belongs_to :user,  :counter_cache => true
 
 
