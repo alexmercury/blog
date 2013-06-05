@@ -36,7 +36,7 @@ end
 
 # To use debugger
 # gem 'debugger'
-gem "devise", "~> 3.0.0.rc"
+gem "devise"
 
 gem 'bootstrap-sass', '~> 2.3.1.2'
 gem 'kaminari'

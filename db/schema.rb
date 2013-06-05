@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130604141208) do
+ActiveRecord::Schema.define(:version => 20130604151011) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -62,6 +62,19 @@ ActiveRecord::Schema.define(:version => 20130604141208) do
     t.datetime "updated_at",                    :null => false
     t.integer  "user_id"
     t.integer  "comments_count", :default => 0
+  end
+
+  create_table "posts_to_tags", :force => true do |t|
+    t.integer  "id_post"
+    t.integer  "id_tag"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "cont"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|
