@@ -1,0 +1,18 @@
+= form_for(@post) do |f|
+  - if @post.errors.any?
+    %div#error_explanation
+      %h2= pluralize(@post.errors.count, "error")
+      %ul
+        - @post.errors.full_messages.each do |msg|
+          %li= msg
+  %div.field
+    = f.label :title
+    = f.text_field :title
+  %div.field
+    = f.label :body
+    = f.text_area :body
+  %div.field
+    = f.label :data
+    = f.datetime_select :data
+  %div.field
+    = f.submit  :class => 'btn btn-primary'

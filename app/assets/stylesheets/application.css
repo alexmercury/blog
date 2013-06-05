@@ -20,21 +20,26 @@ article, aside, figure, footer, header, hgroup, nav, section {
 body.blog {
     margin: 0;
     padding: 0;
-    background: #000000;
-    color: #444;
-    background-image: url("/assets/blogBody.png");
+    background: #CDCDCD;
+    /*background-image: url("/assets/blogBody.png");*/
 
 }
 
 header{
-
+    display: block;
     margin: 0 20px 20px 20px;
-    border-radius: 0 0 30px 30px;
+    border-radius: 0 0 20px 20px;
+    /*border: 1px solid #00CED1;
     /*opacity: 0.6; */
-    background-image: url("/assets/blogHeader.png");
-    background-color: #3C3B33;
-    height: 100px;
+    /*background-image: url("/assets/blogHeader.png"); */
+    background-color: #383838;
+    text-align: center;
+}
 
+.head-user-menu{
+    display: inline-block;
+    margin: 0 10px 0 10px;
+    text-align: left;
 }
 
 div.blogContent{
@@ -69,6 +74,13 @@ div.sidebar {
     margin: 0 240px 0 0;
     padding: 0;
 }
+
+
+.post-index-title{
+    text-align: center;
+    color: #228B22;
+}
+
 
 .post
 {
@@ -114,8 +126,10 @@ table.post-title{
     margin-right: 20px;
 }
 
-post-paginate{
-    margin:0 auto;
+.post-paginate{
+    display: block;
+    text-align: center;
+    margin: 10px 0;
 }
 
 footer {
