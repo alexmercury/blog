@@ -3,5 +3,10 @@
   = render :partial => '/base/tag_3d'
 %div.content
   %din.post-block
+    -if notice
+      %div.blog-massage-panel
+        %div.blog-massage
+          %div#notice= notice
+          %span.btn#msg-close OK
     %h1.headLists Еще не проверенные посты
   = render :partial => 'posts/post_show_status'

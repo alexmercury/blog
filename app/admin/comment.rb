@@ -1,4 +1,4 @@
-ActiveAdmin.register Bcomment, :as => "PostComment" do
+ActiveAdmin.register PostComment, :as => "PostComment" do
 
 
 end

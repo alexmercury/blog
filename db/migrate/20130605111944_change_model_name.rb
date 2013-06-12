@@ -1,6 +1,6 @@
 class ChangeModelName < ActiveRecord::Migration
   def up
-    create_table "bcomments", :force => true do |t|
+    create_table "PostComments", :force => true do |t|
       t.integer  "post_id"
       t.text     "text"
       t.datetime "created_at", :null => false

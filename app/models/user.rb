@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me
 
   has_many :posts
-  has_many :bcomments
+  has_many :post_comments
 end

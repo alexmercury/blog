@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   def new
     if current_user.posts.posts_not.length >= 3
       respond_to do |format|
-        format.html { redirect_to posts_url, notice: 'You have 3 not accept post' }
+        format.html { redirect_to panel_url, notice: 'You have '+current_user.posts.posts_not.length.to_s+' not accept post' }
         end
     else
       @post = Post.new
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
     post_tags = United.find_all_by_post_id(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post])
+      if @post.update_attributes(params[:post]) &&  @post.update_attribute(:status, 0)
 
         myParams.each do |key, value|# Параметры существующих тегов из формы
           unless value.to_i == 0
@@ -93,7 +93,6 @@ class PostsController < ApplicationController
             end
           end
         end
-
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
       else
         format.html { render action: 'edit' }

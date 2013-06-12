@@ -10,8 +10,13 @@ ActiveAdmin.register Post do
     column :updated_at
 
     default_actions
-
   end
 
-
+  form do |f|
+    f.inputs 'Post' do
+      f.input :status
+      f.input :adm_comment
+    end
+    f.actions
+  end
 end

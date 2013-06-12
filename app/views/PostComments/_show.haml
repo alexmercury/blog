@@ -1,5 +1,5 @@
-- if !@post.bcomments.nil?
-  - @post.bcomments.each do |comment|
+- if !@post.post_comments.nil?
+  - @post.post_comments.each do |comment|
     %div.comment
       %span.comment-h-item
         %i.icon-user

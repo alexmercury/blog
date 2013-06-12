@@ -3,8 +3,10 @@ class Tag < ActiveRecord::Base
 
   has_many :uniteds
   has_many :posts, :through => :uniteds
-  #accepts_nested_attributes_for :posts, :reject_if => lambda { |a| a[:cont].blank? }, :allow_destroy => true
 
-  validates_uniqueness_of :cont
+  validates :cont,
+            :presence => true,
+            :length => { :minimum => 3, :maximum => 15 },
+            :uniqueness => true
 
 end

@@ -48,8 +48,8 @@
         %i{:class => 'icon-comment icon-white'}
       %span.post-h-text Комментарии:
     %div.post-content
-      = render :partial => '/bcomments/show'
-      %div.comment-add= render :partial => '/bcomments/add'
+      = render :partial => '/PostComments/show'
+      %div.comment-add= render :partial => '/PostComments/add'
 
 
     %div.post-footer
@@ -63,7 +63,7 @@
                 <% end %>
 
 
-              <%= render :partial => '/bcomments/add' %>
+              <%= render :partial => '/PostComments/add' %>
 
 
             <%= link_to 'Edit', edit_post_path(@post) %> |

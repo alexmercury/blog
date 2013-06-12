@@ -4,7 +4,7 @@ Blog1::Application.routes.draw do
 
   resources :posts do
     get 'page/:page', :action => :index, :on => :collection
-  	resources :bcomments
+  	resources :post_comments
   end
 
   resources :tags

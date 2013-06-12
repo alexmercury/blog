@@ -47,4 +47,12 @@ gem "meta_search"
 gem "execjs"
 gem 'therubyracer'
 
+gem "rspec-rails", :group => [:test, :development]
+group :test do
+  gem "factory_girl_rails"
+  gem "capybara"
+  gem "guard-rspec"
+  gem "shoulda-matchers"
+end
+
 

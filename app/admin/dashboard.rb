@@ -24,7 +24,7 @@ ActiveAdmin.register_page "Dashboard" do
   end
 
   sidebar 'Last 10 comments' do
-      table_for Bcomment.order('created_at desc').limit(10) do
+      table_for PostComment.order('created_at desc').limit(10) do
         column :id
         column :text
         column :created_at

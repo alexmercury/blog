@@ -1,4 +1,4 @@
-class BcommentsController < ApplicationController
+class PostCommentsController < ApplicationController
 
   before_filter :authenticate_user!
 
