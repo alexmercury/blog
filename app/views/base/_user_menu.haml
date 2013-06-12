@@ -1,39 +1,42 @@
 %div.head-user-menu
   %div.btn-group
     - if user_signed_in?
-      %span{ :class => "btn btn-primary"}
-        %i{ :class => "icon-user icon-white"}
-        = current_user.user_name
-      %a{ :class => 'btn btn-primary dropdown-toggle', :data => { :toggle => 'dropdown'}, :href => "#"}
+      %span{:class => 'btn dropdown-toggle', :data => {:toggle => 'dropdown'}, :href => ''}
+        %span.head-user-menu-item
+          %i.icon-user
+          = current_user.user_name
+        %span.head-user-menu-item
+          %i.icon-align-justify
+          = current_user.posts_count
+        %span.head-user-menu-item
+          %i.icon-comment
+          = current_user.bcomments_count
         %span.caret
-      %ul{ :class => "dropdown-menu"}
+
+      %ul.dropdown-menu
         %li
-          %a{ :href => new_post_path}
-            %i{ :class => "icon-edit"}
-            %span Добавить пост
+          %a{:href => new_post_path}
+            %i.icon-edit
+            Добавить пост
         %li
-          %a{ :href => "#"}
-            %i{ :class => "icon-trash"}
-            %span Delete
+          %a{ :href => ''}
+            %i.icon-trash
+            Delete
+        %li.divider
         %li
-          %a{ :title => 'Если вы уже зарегистрированны !', :href => "#"}
-            %i{ :class => "icon-ban-circle"}
-            %span Ban
-        %li{ :class => "divider"}
-        %li
-          = link_to destroy_user_session_path, method: :delete, data: { confirm: 'Вы уверены, что хотите выйти из профиля ?' }, :title => 'Выход из профиля' do
+          = link_to destroy_user_session_path, method: :delete, data:{confirm: 'Вы уверены, что хотите выйти из профиля ?'}, :title => 'Выход из профиля' do
             %i.icon-off
             Выйти
     - else
-      %span{ :class => "btn btn-primary dropdown-toggle",:data => { :toggle => 'dropdown'}, :href => ''}
-        %i{ :class => "icon-question-sign icon-white"}
+      %span{:class => 'btn dropdown-toggle', :data => {:toggle => 'dropdown'}}
+        %i.icon-question-sign
         Войдите или зарегистрируйтесь
-      %ul{ :class => "dropdown-menu"}
+      %ul.dropdown-menu
         %li
-          %a{ :href => "#", :title => 'Если вы уже зарегистрированны !', :href => (new_user_session_path)}
-            %i{ :class => "icon-user"}
+          %a{:title => 'Если вы уже зарегистрированны !', :href => new_user_session_path }
+            %i.icon-user
             Войти
         %li
-          %a{ :href => "#", :title => 'Вы еще не зарегистрированны ?', :href => (new_user_registration_path)}
-            %i{ :class => "icon-play"}
+          %a{:title => 'Вы еще не зарегистрированны ?', :href => new_user_registration_path }
+            %i.icon-play
             Регистрация

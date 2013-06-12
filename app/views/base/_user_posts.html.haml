@@ -1,0 +1,18 @@
+%div.sidebar
+  %div.sidebar-header
+    =t :blog_user_my_posts
+  -if user_signed_in?
+    -if !current_user.posts.nil?
+      %div.sidebar-content
+        %ul
+          -current_user.posts.each do |post|
+            %li
+              =link_to post.title, post
+    -else
+      %div.sidebar-content=t :blog_user_no_posts
+  -else
+    %div.sidebar-content
+      Дя создания постов необходимо
+      =link_to (t :blog_user_log_in), new_user_session_path
+      или
+      =link_to 'зарегистрироваться', new_user_registration_path

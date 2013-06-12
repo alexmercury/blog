@@ -1,27 +1,27 @@
 class TagsController < ApplicationController
 
   def create
-    #post = Post.find(params[:post_id])
-    #post.united.tag =
-    #post.united.id_posts =  params[:post_id]
-    #tag = Tag.find_or_create_by_cont(params[:tag])
-    #tag.save
-
-
-
-    #united = United.new
-    #united.id_posts =  params[:post_id]
-    #united.id_tags =  tag.save
-
-    redirect_to :back
   end
 
   def destroy
-
+=begin
+    tag = Tag.find(params[:id])
+    uniteds = United.find_by_tag_id(params[:id])
+    uniteds.each do |utd|
+      utd.destroy
+    end
+    tag.destroy
+=end
   end
 
   def new
+  end
 
+  def show
+    @posts = Tag.find(params[:id]).posts
+    respond_to do |format|
+      format.html # show.html
+    end
   end
 
 end

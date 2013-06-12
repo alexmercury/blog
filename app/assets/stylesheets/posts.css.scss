@@ -5,32 +5,89 @@ h1.headLists{
   color:#228B22;
 }
 
-table.blog{
-  background-image: url("/assets/blogContent.png");
-  margin: 10px 20px 20px 20px;
-  width: auto;
-}
-
-.thRow{
-  background-color:#00CED1;
-
-}
-
-.trPost1{
-  background-color:#F0F8FF;
-
-}
-
-.trPost2{
-
-  background-color:#A9A9A9;
-
-}
-
 .rubyImg{
 
   float:left;
   margin:0 40px;
+}
+
+.post
+{
+  background: #fff;
+  margin: 10px 0 30px 0;
+}
+
+.post-title{
+  margin: 0;
+  text-align: center;
+  /*text-transform: uppercase;*/
+
 
 }
 
+.post-header{
+  display: block;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #e0e0e0;
+  padding: 5px;
+  text-align: left;
+}
+
+.post-h-item{
+  display: inline-block;
+  margin: 5px 5px 5px 25px;
+}
+
+.post-h-text{
+  display: inline-block;
+  margin: 0;
+}
+
+.post-content{
+  margin: 0;
+  padding: 20px;
+  min-height: 100px;
+}
+
+.post-content-form{
+  margin: 0;
+  padding: 20px;
+  min-height: 100px;
+  text-align: center;
+}
+
+.post-footer{
+  display: block;
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  border-top: 1px solid #f2f2f2;
+  padding: 5px;
+  text-align: left;
+}
+
+.post-menu{
+  text-align: left;
+  float: right;
+  margin-right:20px;
+}
+
+.post-paginate{
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.post-hide{
+     display: none;
+}
+
+.post-adm-comment{
+  display: none;
+  width: 300px;
+  position: relative;
+  float: right;
+  top: 0;
+  right: 0;
+  margin: 0 0 0 10px;
+}

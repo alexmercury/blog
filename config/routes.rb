@@ -5,10 +5,11 @@ Blog1::Application.routes.draw do
   resources :posts do
     get 'page/:page', :action => :index, :on => :collection
   	resources :bcomments
-    resources :tags
   end
 
+  resources :tags
 
+  match '/user/panel' => "posts#panel", :as => :panel
 
   ActiveAdmin.routes(self)
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -1,10 +1,8 @@
 class CreatePostsToTags < ActiveRecord::Migration
   def change
     create_table :uniteds do |t|
-      t.integer :id_posts
-      t.integer :id_tags
-
-      t.timestamps
+      t.integer :post_id
+      t.integer :tag_id
     end
   end
 end

@@ -1,0 +1,14 @@
+%div.sidebar_container
+  %div.sidebar= render :partial => '/base/user_posts'
+%div.post-index-title
+  %h1.headLists Editing post
+%div.content
+  %div.post
+    %div.post-header
+      %span.post-h-item
+        %i{:class => 'icon-pencil icon-white'}
+        Редактирование поста:
+      %span.post-h-text= @post.title
+    %div.post-content-form= render 'form'
+    %div.post-footer
+  =# render 'form'

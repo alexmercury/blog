@@ -1,3 +1,35 @@
 // Place all the styles related to the comments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.comment{
+  border-bottom: 2px solid #008DF0;
+  margin-bottom: 15px;
+}
+
+.comment-h-item{
+  display: block;
+  padding: 10px 20px;
+  width: 150px;
+  float: left;
+
+}
+.comment-h-text{
+  display: block;
+  margin: 0 200px;
+  border-right: 2px solid #008DF0;
+  border-left: 2px solid #008DF0;
+  padding: 10px 20px;
+}
+
+.comment-h-data{
+  display: block;
+  padding: 10px 20px;
+  width: 150px;
+  float: right;
+}
+
+.comment-add{
+
+}

@@ -1,0 +1,14 @@
+- if !@post.bcomments.nil?
+  - @post.bcomments.each do |comment|
+    %div.comment
+      %span.comment-h-item
+        %i.icon-user
+        = comment.user.user_name
+      %span.comment-h-data
+        = comment.created_at.to_s[0...10]
+      %span.comment-h-text= comment.text
+-#<% if user_signed_in? %>
+-#   <% if current_user.id == comment.user_id or  comment.user_id == 0 %>
+-#   <td class="user_td">
+-#   <%= link_to [@post, comment], method: :delete, data: { confirm: 'Вы уверены, что хотите удалить коментарий ?' },:class => 'btn', :title => 'Удалить комментарий' do %>
+-#   <i class="icon-remove"></i>

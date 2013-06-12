@@ -3,6 +3,23 @@
 
 en:
   hello: "Hello world"
+  blog_edit_post: "Редактировать пост"
+  blog_read_post: "Читать пост"
+  blog_delete_post: "Удалить пост"
+  blog_delete_post_question: "Вы действительно хотите удалить пост - \"%{post_name}\" ?"
+
+  blog_post_author: "Автор"
+  blog_post_created: "Создан"
+  blog_post_last_update: "Последние изменения"
+  blog_post_tags: "Теги"
+  blog_post_comments_count: "Комментариев"
+
+  blog_user_my_posts: "Мои посты"
+  blog_user_no_posts: "У вас не постов"
+  blog_user_log_in: "Войти"
+  blog_user_log_out: "Выйти"
+
+
 
   views:
     pagination:

@@ -2,11 +2,14 @@
 %html
   %head
     %title Blog
-    = stylesheet_link_tag    "application", :media => "all"
-    = javascript_include_tag "application"
+    = stylesheet_link_tag    'application', :media => 'all'
+    = javascript_include_tag 'application'
+    %script{:src => '/jquery.tagcanvas.js', :type => 'text/javascript'}
     = csrf_meta_tags
   %body.blog
-    %header= render :partial => "/base/user_menu"
+    %header
+      = render :partial => 'base/blog_menu'
+      = render :partial => '/base/user_menu'
     %div.blogContent
       = yield
-    %footer
+  %footer

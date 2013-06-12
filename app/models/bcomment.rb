@@ -1,5 +1,5 @@
 class Bcomment < ActiveRecord::Base
-  attr_accessible :post_id, :text
+  #attr_accessible :post_id, :text
   
 	belongs_to :post, :counter_cache => true
   belongs_to :user,  :counter_cache => true

@@ -44,4 +44,7 @@ gem 'haml-rails'
 gem 'activeadmin'
 gem "meta_search"
 
+gem "execjs"
+gem 'therubyracer'
+
 

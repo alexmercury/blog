@@ -8,7 +8,7 @@ class BcommentsController < ApplicationController
     bcomment.user_id = current_user.id
     bcomment.save
 
-  	redirect_to :back
+    redirect_to :back
   end
 
   def destroy

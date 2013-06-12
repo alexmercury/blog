@@ -1,0 +1,72 @@
+%div.sidebar_container
+  = render :partial => '/base/user_posts'
+%div.content
+  -if !notice.nil?
+    %div.blog-massage-panel
+      %div.blog-massage
+        %p#notice= notice
+        %span.btn#msg-close OK
+  %div.post
+    %div.post-header
+      %span.post-h-item
+        %i{:class => 'icon-hand-right icon-white'}
+      %span.post-h-text= @post.title
+      %span.post-h-item создан:
+      %span.post-h-text= @post.created_at
+      %span.post-h-item последние изменения:
+      %span.post-h-text= @post.updated_at
+      - if user_signed_in?
+        - if @post.user_id == current_user.id
+          %span.post-menu
+            %div.btn-group
+              %span{:class => 'btn btn-primary dropdown-toggle', :data => {:toggle => 'dropdown'}}
+                %i{:class => 'icon-list icon-white'}
+              %ul.dropdown-menu
+                %li
+                  = link_to edit_post_path(@post), :title => 'Редактировать пост "'+@post.title+'"' do
+                    %i.icon-pencil
+                    Редактировать
+                %li
+                  = link_to @post, method: :delete, data: { confirm: 'Вы действительно хотите удалить пост "'+@post.title+'" ?' }, :title => 'Удалить пост "'+@post.title+'"' do
+                    %i.icon-trash
+                    Удалить
+    %div.post-content= @post.body
+    %div.post-footer
+      %span.post-h-item Комментариев:
+      %span.post-h-text
+        %i{:class => 'icon-comment icon-white'}
+        = @post.bcomments_count
+      %span.post-h-item Теги:
+      %span.post-h-text
+        %i{:class => 'icon-tags icon-white'}
+        - if !@post.tags.nil?
+          - @post.tags.each do |tag|
+            = tag.cont
+  %div.post
+    %div.post-header
+      %span.post-h-item
+        %i{:class => 'icon-comment icon-white'}
+      %span.post-h-text Комментарии:
+    %div.post-content
+      = render :partial => '/bcomments/show'
+      %div.comment-add= render :partial => '/bcomments/add'
+
+
+    %div.post-footer
+
+
+-#
+  <p id="notice"><%= notice %></p>
+
+            <% @post.tags.each  do |t| %>
+            <%= t.cont %>
+                <% end %>
+
+
+              <%= render :partial => '/bcomments/add' %>
+
+
+            <%= link_to 'Edit', edit_post_path(@post) %> |
+            <%= link_to 'Back', posts_path %>
+
+      </div>

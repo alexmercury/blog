@@ -1,0 +1,7 @@
+%div.sidebar_container
+  = render :partial => '/base/user_posts'
+  = render :partial => '/base/tag_3d'
+%div.content
+  %din.post-block
+    %h1.headLists Еще не проверенные посты
+  = render :partial => 'posts/post_show_status'

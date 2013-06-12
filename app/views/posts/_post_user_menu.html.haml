@@ -1,0 +1,18 @@
+-# Button for Post, if this is current user Post
+-# "_index_post_show.html.haml" -> [=render 'post_user_menu', :post => post]
+%div.btn-group
+  %span{:class => 'btn dropdown-toggle', :data => {:toggle => 'dropdown'}}
+    %i.icon-list
+  %ul.dropdown-menu
+    %li
+      = link_to @post, {:title =>(t :blog_read_post)+' - "'+@post.title+'"'} do
+        %i.icon-file
+        =t :blog_read_post
+    %li
+      = link_to edit_post_path(@post), {:title => (t :blog_edit_post)+' - "'+@post.title+'"'} do
+        %i.icon-pencil
+        =t :blog_edit_post
+    %li
+      = link_to @post, { method: :delete, data: { confirm: (t :blog_delete_post_question, :post_name => @post.title) }, :title => (t :blog_delete_post)+' - "'+@post.title+'"'} do
+        %i.icon-trash
+        =t :blog_delete_post

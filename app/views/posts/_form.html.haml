@@ -1,11 +1,15 @@
 = form_for(@post) do |f|
   - if @post.errors.any?
-    %div#error_explanation
-      %h2= pluralize(@post.errors.count, "error")
-      %ul
-        - @post.errors.full_messages.each do |msg|
-          %li= msg
-  %div.field
+    %div.blog-massage-panel
+      %div.blog-massage
+        %div#error_explanation
+          -#%h2= pluralize(@post.errors.count, "error")
+          %h2= @post.errors.count
+        %ul
+          -@post.errors.full_messages.each do |msg|
+            %li= msg
+        %span.btn#msg-close OK
+  %div
     = f.label :title
     = f.text_field :title
   %div.field
@@ -14,11 +18,53 @@
   %div.field
     = f.label :data
     = f.datetime_select :data
-  %div.field
-    - f.fields_for :tags do  |addtag|
-      = addtag.label :content, 'Tag'
-      = addtag.text_field :content
+  %div#post_tag
+    = f.fields_for :tags do |builder|
+      = builder.label :cont, 'tag'
+      = builder.text_field :cont
+  %div
+    %span.pop
+    %span{:type => 'button', :class => 'btn btn-primary', :onClick => 'add_tag();'}
+      %i{:class => 'icon-plus icon-white'}
+    %span{:type => 'button', :class => 'btn btn-primary', :onClick => 'remove_tag();'}
+      %i{:class => 'icon-minus icon-white'}
+  %div
+    -# Tag check boxes
+    = f.fields_for :listTags do |tmpList|
+      %div.btn-group
+        %span{ :onClick => '$(".tag-content").show(300)', :class => 'btn btn-primary', :title => 'Раскрыть список'}
+          %i{ :class => 'icon-chevron-down icon-white'}
+          Список уже созданных тегов
+        %span{ :onClick => '$(".tag-content").hide(600)', :class => 'btn btn-primary', :title => 'Скрыть список'}
+          %i{ :class => 'icon-chevron-up icon-white'}
+      %div.tag-content
+        -unless @tags.nil?
+          -@tags.each  do |postTag|
+            %span.tag-item
+              = tmpList.label postTag.id do
+                -unless @post.tags.nil?
+                  -flag = false
+                  -@post.tags.each do |tag|
+                    -if postTag.id == tag.id
+                      -flag = true
+                -if flag
+                  = tmpList.check_box postTag.id, :checked => true
+                -else
+                  = tmpList.check_box postTag.id
+                = postTag.cont
 
+            -#unless @post.tags.nil?
+              -@post.tags.each do |tag|
+                -if postTag.id == tag.id
+                  %span.tag-item
+                    = tmpList.label postTag.id do
+                      = tmpList.check_box postTag.id, :checked => true
+                      = postTag.cont
+                -else
 
-  %div.field
-    = f.submit :class => 'btn btn-primary'
+        -#gfyj
+              = tmpList.label postTag.id do
+                = tmpList.check_box postTag.id
+                %span{:id => postTag.id, :class => 'tag'}= postTag.cont
+
+  = f.submit :class => 'btn btn-primary'

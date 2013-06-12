@@ -1,0 +1,3 @@
+= form_for [@post, @post.bcomments.build], :class=>'' do |f|
+  = f.text_area :text, :rows => '3', :placeholder=>''
+  = f.submit 'add', :class=>'btn'

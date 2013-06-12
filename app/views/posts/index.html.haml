@@ -1,5 +1,14 @@
 %div.sidebar_container
-  = render :partial => '/base/user_posts'
-%div.post-index-title
-  %h1.headLists List of all posts on this site
-%div.content= render 'post_show_element'
+  =render :partial => '/base/user_posts'
+  =render :partial => '/base/tag_3d'
+%div.content
+  -if notice
+    %div.blog-massage-panel
+      %div.blog-massage
+        %div#notice= notice
+        %span.btn#msg-close OK
+  %div.content-header
+    %h1.headLists List of all posts on this site
+  %div.post-paginate
+    = paginate @posts,:window => 1
+    =render 'index_post_show'

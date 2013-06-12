@@ -1,0 +1,9 @@
+%div.sidebar
+  %div.sidebar-header
+    Облако тегов
+  %div.sidebar-content
+    %canvas{:width => '220', :height => '300', :id => 'myCanvas'}
+      %div#tagcloud
+        - if !@tags.nil?
+          - @tags.each do |tag|
+            = link_to tag.cont, tag

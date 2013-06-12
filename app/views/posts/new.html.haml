@@ -1,15 +1,12 @@
 %div.sidebar_container
   %div.sidebar= render :partial => '/base/user_posts'
-%div.post-index-title
-  %h1.headLists Create new post
 %div.content
-  = render 'form'
-  = link_to 'Back', posts_path
--# form_for [@post, @post.tags.build] do |f|
-    = f.text_area :cont, :rows => '3'
-    = f.submit 'add', :class=>'btn'
-    # <img class="rubyImg" src="/ruby.png" alt="ruby">
-    <%= form_for [@post, @post.bcomments.build], :class=>'btn-group' do |f| %>
-
-        <%= f.text_area :text, :rows => '3', :placeholder=>''%>
-      <%= f.submit 'add', :class=>'btn'%>
+  %div.post
+    %div.post-title
+      %h3
+        %i.icon-edit
+        Создание нового поста:
+    %div.post-content-form
+      = render 'form'
+      = link_to 'Back', posts_path
+    %div.post-footer

@@ -14,136 +14,124 @@
  */
 
 article, aside, figure, footer, header, hgroup, nav, section {
-    display:block;
+  display:block;
 }
 
 body.blog {
-    margin: 0;
-    padding: 0;
-    background: #CDCDCD;
-    /*background-image: url("/assets/blogBody.png");*/
+  margin: 0;
+  padding: 0;
+  /*background: #CDCDCD;
+  background-image: url("/assets/blogBody.png");*/
 
 }
 
 header{
-    display: block;
-    margin: 0 20px 20px 20px;
-    border-radius: 0 0 20px 20px;
-    /*border: 1px solid #00CED1;
-    /*opacity: 0.6; */
-    /*background-image: url("/assets/blogHeader.png"); */
-    background-color: #383838;
-    text-align: center;
+  margin: 0 0 20 0px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  color: #fff;
+  height: 125px;
 }
 
 .head-user-menu{
-    display: inline-block;
-    margin: 0 10px 0 10px;
-    text-align: left;
+  display: inline-block;
+  margin: 0 10px 0 10px;
+  text-align: left;
+}
+
+.head-user-menu-item{
+  border-right: 1px dotted #fff;   margin: 0 5px 0 0;
+  padding: 0 5px;
 }
 
 div.blogContent{
-    display: block;
-    margin: 0 20px 70px 20px;
-    padding: 0;
+  display: block;
+  /*margin: 0 200px 70px 200px;*/
+  padding: 0;
+
+  min-width: 1000px;
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-div.sidebar_container {
+.sidebar_container {
     float: right;
-    width: 234px;
+    width: 230px;
 }
 
-div.sidebar {
-    width: 200px;
-    margin: 0;
-    background: #ddd; /* Show a solid color for older browsers */
-    background: -moz-linear-gradient(#fff, #E6E4D4);
-    background: -o-linear-gradient(#fff, #E6E4D4);
-    background: -webkit-linear-gradient(#fff, #E6E4D4);
-    -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
-    -moz-box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 2px;
-    border: 1px solid #eee;
-    border-radius: 7px 7px 7px 7px;
-    -moz-border-radius: 7px 7px 7px 7px;
-    -webkit-border: 7px 7px 7px 7px;
-    padding: 0 15px 5px 13px;
+.sidebar {
+  margin: 0 0 25px 0;
+  background: #fff;
+  border: 1px solid #e0e0e0;
 }
 
-.content {
-    margin: 0 240px 0 0;
-    padding: 0;
+.sidebar-header{
+  text-align: center;
+  margin: 0;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.sidebar-content{
+  margin: 0;
+  padding: 5px;
 }
 
 
-.post-index-title{
+.content-header{
     text-align: center;
     color: #228B22;
 }
 
-
-.post
-{
-    text-align: center;
-    background: #ddd; /* Show a solid color for older browsers */
-    border: 2px solid #000;
-    border-radius: 20px 20px 20px 20px;
-    -moz-border-radius: 20px 20px 20px 20px;
-    -webkit-border: 20px 20px 20px 20px;
-    background-image: url("/assets/blogContent1.png");
-    margin-bottom: 20px;
+.content {
+    margin: 0 260px 0 0;
+    padding: 0;
 }
 
-.post-header{
-    display: block;
-    position: relative;
-    right: 0px;
-    top: 0px;
-    border-bottom: 2px solid #000;
-    background-color: #3C3B33;
-    width: 100%;
-    border-radius: 20px 20px 0px 0px;
-    -moz-border-radius: 20px 20px 0px 0px;
-    -webkit-border: 20px 20px 0px 0px;
-    background-image: url("/assets/blogHeader.png");
-    padding: 10px 0;
-}
 
-table.post-title{
-    margin: 0px 20px 0px 20px;
-    color: #ffffff;
-    /*width: 50px;*/
-    width: 80%;
-}
 
-.post-content{
-    margin: 10px 20px 10px 20px;
-}
-
-.post-menu{
-    text-align: left;
-    float: right;
-    margin-right: 20px;
-}
-
-.post-paginate{
-    display: block;
-    text-align: center;
-    margin: 10px 0;
-}
 
 footer {
-    height: 50px;
-    width: 100%;
-    text-align: center;
-    color: #3C3B33;
-    border-top: 6px solid #b4b4b4;
-    background-color: #3C3B33;
-    background-image: url("/assets/blogHeader.png");
-    margin: 0;
-    position: fixed;
-    bottom: 0px;
-    right: 0px;
+  height: 50px;
+  text-align: center;
+
+  margin: 0 0 20 0px;
+  background-color: #f0f0f0;
+  border-top: 1px solid #e0e0e0;
+  text-align: center;
+  color: #000000;
 }
 
+#tagcloud a {
+    color:#dedede;
+    font-size: 12px;
+}
+
+.blog-massage-panel{
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.30);
+
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  z-index: 5;
+
+}
+
+.blog-massage{
+  /*margin: 0 auto;*/
+  height: 400px;
+  width: 600px;
+  background-color: #eeeeee;
+
+  margin:-200px 0 0 -300px;
+  top:50%;
+  left:50%;
+  position:absolute;
+
+}
 
