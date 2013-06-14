@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
-  #attr_protected :user_id, :status, :adm_comment
+
+  attr_protected :user_id, :status, :adm_comment, :as => :blog_user
 
   has_many :post_comments, :dependent => :destroy
   belongs_to :user, :counter_cache => true
@@ -9,8 +10,6 @@ class Post < ActiveRecord::Base
 
   accepts_nested_attributes_for :tags, :reject_if => lambda { |a| a[:cont].blank? }, :allow_destroy => true
 
-  #default_scope { where(" title  NOT LIKE '%hidden%' ")}
-  
   validates_presence_of :data
 
   validates :title,
@@ -26,5 +25,6 @@ class Post < ActiveRecord::Base
 
   scope :index_posts, where('status > 0').order('updated_at desc')
   scope :posts_not, where('status = 0')
+  scope :not_hidden_title, where(" title  NOT LIKE '%hidden%' ")
 
 end

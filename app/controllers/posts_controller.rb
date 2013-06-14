@@ -23,18 +23,12 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    if current_user.posts.posts_not.length >= 3
-      respond_to do |format|
-        format.html { redirect_to panel_url, notice: 'You have '+current_user.posts.posts_not.length.to_s+' not accept post' }
-        end
-    else
-      @post = Post.new
-      @post.tags.build
-      @tags = Tag.all
+    @post = Post.new
+    @post.tags.build
+    @tags = Tag.all
 
-      respond_to do |format|
-        format.html # new.html
-      end
+    respond_to do |format|
+      format.html # new.html
     end
   end
 
@@ -46,23 +40,29 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    myParams = params[:post][:listTags]
-    params[:post].delete(:listTags)
-    @post = current_user.posts.new(params[:post])
+    if current_user.posts.posts_not.length >= 3
+      respond_to do |format|
+        format.html { redirect_to panel_url, notice: 'You have '+current_user.posts.posts_not.length.to_s+' not accept post' }
+      end
+    else
+      myParams = params[:post][:listTags]
+      params[:post].delete(:listTags)
+      @post = current_user.posts.new(params[:post], :as => :blog_user)
 
-    respond_to do |format|
-      if @post.save
-        myParams.each do |key, value|# Параметры существующих тегов из формы
-          unless value.to_i == 0
-            United.create do |united|
-              united.post_id = @post.id
-              united.tag_id = key.to_s
+      respond_to do |format|
+        if @post.save
+          myParams.each do |key, value|# Параметры существующих тегов из формы
+            unless value.to_i == 0
+              United.create do |united|
+                united.post_id = @post.id
+                united.tag_id = key.to_s
+              end
             end
           end
+          format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        else
+           format.html { render action: 'new' }
         end
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
-      else
-         format.html { render action: 'new' }
       end
     end
   end
@@ -75,7 +75,7 @@ class PostsController < ApplicationController
     post_tags = United.find_all_by_post_id(params[:id])
 
     respond_to do |format|
-      if @post.update_attributes(params[:post]) &&  @post.update_attribute(:status, 0)
+      if @post.update_attributes(params[:post], :as => :blog_user) &&  @post.update_attribute(:status, 0)
 
         myParams.each do |key, value|# Параметры существующих тегов из формы
           unless value.to_i == 0
@@ -98,6 +98,7 @@ class PostsController < ApplicationController
         format.html { render action: 'edit' }
       end
     end
+
   end
 
   # DELETE /posts/1

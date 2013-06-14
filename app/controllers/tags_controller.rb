@@ -4,14 +4,6 @@ class TagsController < ApplicationController
   end
 
   def destroy
-=begin
-    tag = Tag.find(params[:id])
-    uniteds = United.find_by_tag_id(params[:id])
-    uniteds.each do |utd|
-      utd.destroy
-    end
-    tag.destroy
-=end
   end
 
   def new
