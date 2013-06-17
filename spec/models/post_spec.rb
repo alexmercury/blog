@@ -62,8 +62,8 @@ describe Post do
 
   it 'user counter_cache 'do
     user = FactoryGirl.create(:user)
-    user.posts.create(:title => 'qwertyuiop', :body => 'quwieodcmclkdjfhf', :data => Time.new)
-    user.posts.create(:title => 'qwert10yuiop', :body => 'quwieodyfcmclkdjfhf', :data => Time.new)
+    user.posts.create(:title => 'My Post 1', :body => 'Post Post Post Post Post', :data => Time.new)
+    user.posts.create(:title => 'My Post 2', :body => 'Post Post Post Post Post', :data => Time.new)
 
     count_2 = (User.first.posts_count == 2)
     user.posts.first.destroy

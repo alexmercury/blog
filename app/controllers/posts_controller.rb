@@ -77,17 +77,19 @@ class PostsController < ApplicationController
     respond_to do |format|
       if @post.update_attributes(params[:post], :as => :blog_user) &&  @post.update_attribute(:status, 0)
 
-        myParams.each do |key, value|# Параметры существующих тегов из формы
-          unless value.to_i == 0
-            United.create do |utd|
-              utd.post_id = @post.id
-              utd.tag_id = key
-            end
-          else
-            unless post_tags.nil?
-              post_tags.each do |utd|
-                if key.to_i == utd.tag_id
-                  utd.destroy
+        unless  myParams.nil?
+          myParams.each do |key, value|# Параметры существующих тегов из формы
+            unless value.to_i == 0
+              United.create do |utd|
+                utd.post_id = @post.id
+                utd.tag_id = key
+              end
+            else
+              unless post_tags.nil?
+                post_tags.each do |utd|
+                  if key.to_i == utd.tag_id
+                    utd.destroy
+                  end
                 end
               end
             end
