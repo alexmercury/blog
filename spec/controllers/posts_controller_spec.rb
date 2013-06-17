@@ -104,28 +104,93 @@ describe PostsController do
     end
 
     context 'invalid attributes' do
+
       before :each do
-        @first_name = @user.first_name
+        @title = @post.title
       end
 
       it 'locates the requested @post' do
-        put :update, :id => @user, :user => FactoryGirl.attributes_for(:invalid_user)
-        assigns(:user).should eq(@user)
+        put :update, :id => @post, :post => {}
+        assigns(:post).should eq(@post)
       end
 
-      it "changes @user's attributes" do
-        put :update, :id => @user, :user => {:first_name => nil}
-        @user.reload.first_name.should == @first_name
+      it 'changes @posts attributes' do
+        put :update, :id => @post, :post => {:title => ''}
+        @post.reload.title.should == @title
       end
 
-      it "re-redirect to edit" do
-        put :update, :id => @user, :user => {:first_name => nil, :last_name => nil}
-        response.should render_template :edit
+      it 're-redirect to edit' do
+        put :update, :id => @post, :post => {}
+        response.should redirect_to @post
       end
 
     end
 
 
+
+  end
+
+  context 'DELETE #destroy' do
+
+    before :each do
+      sign_in @user
+      @post = @user.posts.create(FactoryGirl.attributes_for(:post))
+    end
+
+    it 'post destroy' do
+      expect{
+        delete :destroy, :id => @post
+      }.to change(Post,:count).by(-1)
+    end
+
+    it 'redirects to posts#index' do
+      delete :destroy, :id => @post
+      response.should redirect_to posts_url
+    end
+
+  end
+
+  context 'GET #panel' do
+
+    it 'render panel' do
+      sign_in @user
+      get :panel
+      response.should render_template(:panel)
+    end
+
+  end
+
+  context 'before_filter :add_all_tag' do
+    before :each do
+      sign_in @user
+      @post = @user.posts.create(FactoryGirl.attributes_for(:post))
+      @tag = @post.tags.create(:cont => 'tag 1')
+    end
+
+    it '@tags in index' do
+      get :index
+      expect(assigns(:tags)).to  eq([@tag])
+    end
+    it '@tags in show' do
+      get :show, :id => @post
+      expect(assigns(:tags)).to  eq([@tag])
+    end
+    it '@tags in update' do
+      put :update, :id => @post, :post => FactoryGirl.attributes_for(:post, :listTags => {'0'=> 0})
+      expect(assigns(:tags)).to  eq([@tag])
+    end
+    it '@tags in new' do
+      get :new, :id => FactoryGirl.create(:post)
+      expect(assigns(:tags)).to  eq([@tag])
+    end
+    it '@tags in create' do
+      post :create, :post => FactoryGirl.attributes_for(:post, :listTags => {'0'=> 0})
+      expect(assigns(:tags)).to  eq([@tag])
+    end
+    it '@tags in panel' do
+      get :panel
+      expect(assigns(:tags)).to  eq([@tag])
+    end
 
   end
 

@@ -1,3 +1,19 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id                  :integer          not null, primary key
+#  title               :string(255)
+#  body                :text
+#  data                :datetime
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  user_id             :integer
+#  post_comments_count :integer          default(0)
+#  status              :integer          default(0)
+#  adm_comment         :text
+#
+
 class Post < ActiveRecord::Base
 
   attr_protected :user_id, :status, :adm_comment, :as => :blog_user

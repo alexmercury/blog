@@ -6,7 +6,6 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.index_posts.includes(:user).page(params[:page]).per(5)
-
     respond_to do |format|
       format.html # index.html
     end
@@ -25,7 +24,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.tags.build
-    @tags = Tag.all
+    #@tags = Tag.all
 
     respond_to do |format|
       format.html # new.html
@@ -106,6 +105,12 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post = current_user.posts.find(params[:id])
+    post_tags = United.find_all_by_post_id(params[:id])
+    unless post_tags.nil?
+      post_tags.each do |united|
+        united.destroy
+      end
+    end
     @post.destroy
 
     respond_to do |format|

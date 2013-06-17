@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: uniteds
+#
+#  id      :integer          not null, primary key
+#  post_id :integer
+#  tag_id  :integer
+#
+
 class United < ActiveRecord::Base
   #attr_accessible :post_id, :tag_id
 

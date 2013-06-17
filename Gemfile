@@ -46,6 +46,7 @@ gem "meta_search"
 
 gem "execjs"
 gem 'therubyracer'
+gem 'annotate'
 
 gem "rspec-rails", :group => [:test, :development]
 group :test do

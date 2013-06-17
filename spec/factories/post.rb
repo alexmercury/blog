@@ -6,5 +6,5 @@ FactoryGirl.define do
     p.body 'Its is my first post in this blog'
     p.data { Time.new }
     association :user, :factory => :user
-    end
+  end
 end
