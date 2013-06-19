@@ -2,7 +2,7 @@ var indexTag = 0;
 
 $(document).ready(function(){
 
-  $('input[id $= cont]').each(function()
+  $('input[id $= text]').each(function()
     {
       //var text = $(this).val();
 
@@ -25,14 +25,14 @@ $(document).ready(function(){
     });
   });
 
-var indexTag = 0;
+//var indexTag = 0;
 
 function add_tag() {
-  $('<input class = "tag'+indexTag+'" id="post_tags_attributes_'+indexTag+'_cont" type="text" size="30" name="post[tags_attributes]['+indexTag+'][cont]">').insertBefore("span.pop");
+  $('<input class = "tag'+indexTag+'" id="post_tags_attributes_'+indexTag+'_text" type="text" size="30" name="post[tags_attributes]['+indexTag+'][text]">').insertBefore("span.pop");
   indexTag++;
 }
 
 function remove_tag() {
-  $('.tag'+indexTag).remove();
   indexTag--;
+  $('.tag'+indexTag).remove();
 }

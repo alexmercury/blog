@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: post_comments
+#
+#  id         :integer          not null, primary key
+#  post_id    :integer
+#  text       :text
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  user_id    :integer
+#
+
 require 'spec_helper'
 
 describe PostComment do

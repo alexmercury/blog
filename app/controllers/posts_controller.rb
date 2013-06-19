@@ -24,7 +24,6 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.tags.build
-    #@tags = Tag.all
 
     respond_to do |format|
       format.html # new.html
@@ -50,11 +49,13 @@ class PostsController < ApplicationController
 
       respond_to do |format|
         if @post.save
-          myParams.each do |key, value|# Параметры существующих тегов из формы
-            unless value.to_i == 0
-              United.create do |united|
-                united.post_id = @post.id
-                united.tag_id = key.to_s
+          unless  myParams.nil?
+            myParams.each do |key, value|# Параметры существующих тегов из формы
+              unless value.to_i == 0
+                United.create do |united|
+                  united.post_id = @post.id
+                  united.tag_id = key.to_s
+                end
               end
             end
           end
@@ -114,7 +115,7 @@ class PostsController < ApplicationController
     @post.destroy
 
     respond_to do |format|
-      format.html { redirect_to posts_url }
+      format.html { redirect_to posts_path }
     end
   end
 

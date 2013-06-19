@@ -50,10 +50,12 @@ gem 'annotate'
 
 gem "rspec-rails", :group => [:test, :development]
 group :test do
-  gem "factory_girl_rails"
-  gem "capybara"
-  gem "guard-rspec"
-  gem "shoulda-matchers"
+  gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'selenium-webdriver'
+  gem 'database_cleaner'
+  gem 'guard-rspec'
+  gem 'shoulda-matchers'
 end
 
 

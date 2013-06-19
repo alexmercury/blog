@@ -26,7 +26,7 @@
           %i.icon-tags
           -unless post.tags.nil?
             -post.tags.each do |tag|
-              =link_to tag.cont, tag
+              =link_to tag.text, tag
         %span.post-menu
           =link_to post, {:title => (t :blog_read_post)+' - "'+post.title+'"'} do
             %span.btn

@@ -6,7 +6,7 @@ describe TagsController do
     before :each do
       FactoryGirl.create :post
       @post = FactoryGirl.create :post
-      @tag = @post.tags.create(:cont => 'tag 1')
+      @tag = @post.tags.create(:text => 'tag 1')
     end
 
     it 'render #show' do
@@ -16,10 +16,9 @@ describe TagsController do
 
     it 'assigns the requested post to @post' do
       get :show, :id => @tag
-      expect(assigns(:posts)).to  eq([@post])
+      controller.instance_variable_get(:@posts).last.title.should == @post.title
     end
 
   end
-
 
 end

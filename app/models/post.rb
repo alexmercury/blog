@@ -5,7 +5,6 @@
 #  id                  :integer          not null, primary key
 #  title               :string(255)
 #  body                :text
-#  data                :datetime
 #  created_at          :datetime         not null
 #  updated_at          :datetime         not null
 #  user_id             :integer
@@ -24,9 +23,7 @@ class Post < ActiveRecord::Base
   has_many :uniteds
   has_many :tags, :through => :uniteds
 
-  accepts_nested_attributes_for :tags, :reject_if => lambda { |a| a[:cont].blank? }, :allow_destroy => true
-
-  validates_presence_of :data
+  accepts_nested_attributes_for :tags, :reject_if => lambda { |a| a[:text].blank? }, :allow_destroy => true
 
   validates :title,
             :presence => true,

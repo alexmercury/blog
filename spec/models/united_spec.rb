@@ -1,3 +1,12 @@
+# == Schema Information
+#
+# Table name: uniteds
+#
+#  id      :integer          not null, primary key
+#  post_id :integer
+#  tag_id  :integer
+#
+
 require 'spec_helper'
 
 describe United do

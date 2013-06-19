@@ -39,7 +39,7 @@
           %i{:class => 'icon-tags icon-white'}
           - if !post.tags.nil?
             - post.tags.each do |tag|
-              = tag.cont
+              = tag.text
         %span.post-menu
           = link_to post, :title => 'Читать пост "'+post.title+'"' do
             %span{:class => 'btn btn-primary'}

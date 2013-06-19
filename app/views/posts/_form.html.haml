@@ -15,13 +15,10 @@
   %div.field
     = f.label :body
     = f.text_area :body
-  %div.field
-    = f.label :data
-    = f.datetime_select :data
   %div#post_tag
     = f.fields_for :tags do |builder|
-      = builder.label :cont, 'tag'
-      = builder.text_field :cont
+      = builder.label :text, 'tag'
+      = builder.text_field :text
   %div
     %span.pop
     %span{:type => 'button', :class => 'btn btn-primary', :onClick => 'add_tag();'}
@@ -51,20 +48,5 @@
                   = tmpList.check_box postTag.id, :checked => true
                 -else
                   = tmpList.check_box postTag.id
-                = postTag.cont
-
-            -#unless @post.tags.nil?
-              -@post.tags.each do |tag|
-                -if postTag.id == tag.id
-                  %span.tag-item
-                    = tmpList.label postTag.id do
-                      = tmpList.check_box postTag.id, :checked => true
-                      = postTag.cont
-                -else
-
-        -#gfyj
-              = tmpList.label postTag.id do
-                = tmpList.check_box postTag.id
-                %span{:id => postTag.id, :class => 'tag'}= postTag.cont
-
+                = postTag.text
   = f.submit :class => 'btn btn-primary'

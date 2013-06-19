@@ -41,7 +41,7 @@
         %i{:class => 'icon-tags icon-white'}
         - if !@post.tags.nil?
           - @post.tags.each do |tag|
-            = tag.cont
+            = tag.text
   %div.post
     %div.post-header
       %span.post-h-item

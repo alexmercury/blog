@@ -1,3 +1,18 @@
+# == Schema Information
+#
+# Table name: posts
+#
+#  id                  :integer          not null, primary key
+#  title               :string(255)
+#  body                :text
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#  user_id             :integer
+#  post_comments_count :integer          default(0)
+#  status              :integer          default(0)
+#  adm_comment         :text
+#
+
 require 'spec_helper'
 
 describe Post do
@@ -18,7 +33,6 @@ describe Post do
   context 'Post db column' do
     it { should have_db_column(:title).of_type(:string) }
     it { should have_db_column(:body).of_type(:text) }
-    it { should have_db_column(:data).of_type(:datetime) }
     it { should have_db_column(:created_at).of_type(:datetime).with_options(:null => false) }
     it { should have_db_column(:updated_at).of_type(:datetime).with_options(:null => false) }
     it { should have_db_column(:user_id).of_type(:integer) }
@@ -27,7 +41,6 @@ describe Post do
     it { should have_db_column(:adm_comment).of_type(:text) }
   end
   context 'Post model validation' do
-    it { should validate_presence_of(:data) }
     it { should validate_presence_of(:title) }
     it { should validate_uniqueness_of(:title) }
     it { should ensure_length_of(:title).is_at_least(5).is_at_most(30) }
@@ -62,8 +75,8 @@ describe Post do
 
   it 'user counter_cache 'do
     user = FactoryGirl.create(:user)
-    user.posts.create(:title => 'My Post 1', :body => 'Post Post Post Post Post', :data => Time.new)
-    user.posts.create(:title => 'My Post 2', :body => 'Post Post Post Post Post', :data => Time.new)
+    user.posts.create(:title => 'My Post 1', :body => 'Post Post Post Post Post')
+    user.posts.create(:title => 'My Post 2', :body => 'Post Post Post Post Post')
 
     count_2 = (User.first.posts_count == 2)
     user.posts.first.destroy
