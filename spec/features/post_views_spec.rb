@@ -37,6 +37,12 @@ describe 'Post on my blog', :js => true do
     expect(page).to have_content 'Post was successfully created'
     find('#msg-close').click
 
+    within('.comment-add') do
+      fill_in 'post_comment[text]', :with => 'my post comment'
+    end
+    find_button('add').click
+    expect(page).to have_content 'my post comment'
+
     visit edit_post_path(@post)
     within('.edit_post') do
       fill_in 'post[title]', :with => 'my post change'
@@ -45,6 +51,12 @@ describe 'Post on my blog', :js => true do
     find_button('Update Post').click
     expect(page).to have_content 'Post was successfully updated'
     find('#msg-close').click
+
+    within('.comment-add') do
+      fill_in 'post_comment[text]', :with => 'my post comment'
+    end
+    find_button('add').click
+    expect(page).to have_content 'my post comment'
 
   end
 
