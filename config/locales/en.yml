@@ -1,31 +1,23 @@
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
 
 en:
   hello: "Hello world"
-  blog_edit_post: "Редактировать пост"
-  blog_read_post: "Читать пост"
-  blog_delete_post: "Удалить пост"
-  blog_delete_post_question: "Вы действительно хотите удалить пост - \"%{post_name}\" ?"
-
-  blog_post_author: "Автор"
-  blog_post_created: "Создан"
-  blog_post_last_update: "Последние изменения"
-  blog_post_tags: "Теги"
-  blog_post_comments_count: "Комментариев"
-
-  blog_user_my_posts: "Мои посты"
-  blog_user_no_posts: "У вас не постов"
-  blog_user_log_in: "Войти"
-  blog_user_log_out: "Выйти"
-
-
-
-  views:
-    pagination:
-      previous: '<i class="icon-chevron-left"></i>'
-      next: '<i class="icon-chevron-right"></i>'
-      first: '<i class="icon-fast-backward"></i>'
-      last: '<i class="icon-fast-forward"></i>'
-      truncate: '...'
-

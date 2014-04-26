@@ -10,7 +10,7 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap
+ *= require bootstrap.min
  */
 
 article, aside, figure, footer, header, hgroup, nav, section {

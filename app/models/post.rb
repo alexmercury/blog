@@ -1,21 +1,6 @@
-# == Schema Information
-#
-# Table name: posts
-#
-#  id                  :integer          not null, primary key
-#  title               :string(255)
-#  body                :text
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  user_id             :integer
-#  post_comments_count :integer          default(0)
-#  status              :integer          default(0)
-#  adm_comment         :text
-#
-
 class Post < ActiveRecord::Base
 
-  attr_protected :user_id, :status, :adm_comment, :as => :blog_user
+  #attr_protected :user_id, :status, :adm_comment, :as => :blog_user
 
   has_many :post_comments, :dependent => :destroy
   belongs_to :user, :counter_cache => true
@@ -36,8 +21,8 @@ class Post < ActiveRecord::Base
             :presence => true,
             :numericality => { :only_integer => true, :greater_than => 0 }
 
-  scope :index_posts, where('status > 0').order('updated_at desc')
-  scope :posts_not, where('status = 0')
-  scope :not_hidden_title, where(" title  NOT LIKE '%hidden%' ")
+  scope :index_posts, -> {where('status > 0').order('updated_at desc')}
+  scope :posts_not, -> {where('status = 0')}
+  scope :not_hidden_title, -> {where(" title  NOT LIKE '%hidden%' ")}
 
 end
