@@ -1,15 +1,3 @@
-# == Schema Information
-#
-# Table name: post_comments
-#
-#  id         :integer          not null, primary key
-#  post_id    :integer
-#  text       :text
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  user_id    :integer
-#
-
 require 'spec_helper'
 
 describe PostComment do
@@ -35,6 +23,7 @@ describe PostComment do
   end
 
   context 'User counter_cache 'do
+
     before :each do
       FactoryGirl.create(:user)
       User.first.post_comments.create(:text => '123456', :post_id => 1)
@@ -49,9 +38,11 @@ describe PostComment do
       User.first.post_comments.first.destroy
       User.first.post_comments_count.should be 1
     end
+
   end
 
   context 'Post counter_cache 'do
+
     before :each do
       FactoryGirl.create(:post)
       Post.first.post_comments.create(:text => '123456', :user_id => 1)
@@ -66,5 +57,7 @@ describe PostComment do
       Post.first.post_comments.first.destroy
       Post.first.post_comments_count.should be 1
     end
+
   end
+
 end

@@ -1,27 +1,6 @@
-# == Schema Information
-#
-# Table name: posts
-#
-#  id                  :integer          not null, primary key
-#  title               :string(255)
-#  body                :text
-#  created_at          :datetime         not null
-#  updated_at          :datetime         not null
-#  user_id             :integer
-#  post_comments_count :integer          default(0)
-#  status              :integer          default(0)
-#  adm_comment         :text
-#
-
 require 'spec_helper'
 
 describe Post do
-
-  context 'Post model attribute can not be set on mass update' do
-    it { should_not allow_mass_assignment_of(:user_id).as(:blog_user) }
-    it { should_not allow_mass_assignment_of(:status).as(:blog_user) }
-    it { should_not allow_mass_assignment_of(:adm_comment).as(:blog_user) }
-  end
 
   context 'Post model connection' do
     it { should have_many(:post_comments).dependent(:destroy) }
@@ -30,6 +9,7 @@ describe Post do
     it { should have_many(:tags).through(:uniteds) }
     it { should accept_nested_attributes_for(:tags) }
   end
+
   context 'Post db column' do
     it { should have_db_column(:title).of_type(:string) }
     it { should have_db_column(:body).of_type(:text) }
@@ -40,6 +20,7 @@ describe Post do
     it { should have_db_column(:status).of_type(:integer).with_options(:default => 0) }
     it { should have_db_column(:adm_comment).of_type(:text) }
   end
+
   context 'Post model validation' do
     it { should validate_presence_of(:title) }
     it { should validate_uniqueness_of(:title) }
@@ -49,7 +30,9 @@ describe Post do
     it { should validate_presence_of(:user_id) }
     it { should validate_numericality_of(:user_id) }
   end
+
   context 'Post model scope' do
+
     it 'scope -> :index_posts' do
       FactoryGirl.create(:post, status: 1 )
       FactoryGirl.create(:post, status: 0  )
@@ -57,6 +40,7 @@ describe Post do
       posts = Post.index_posts
       posts.count.should be 1
     end
+
     it 'scope -> :posts_not' do
       FactoryGirl.create(:post)
       FactoryGirl.create(:post, status: 1  )
@@ -64,6 +48,7 @@ describe Post do
       posts = Post.posts_not
       posts.count.should be 1
     end
+
     it 'scope -> :not_hidden_title' do
       FactoryGirl.create(:post)
       FactoryGirl.create(:post, title: 'second post hidden' )
@@ -71,6 +56,7 @@ describe Post do
       posts = Post.not_hidden_title
       posts.count.should be 1
     end
+
   end
 
   it 'user counter_cache 'do

@@ -1,13 +1,3 @@
-# == Schema Information
-#
-# Table name: tags
-#
-#  id         :integer          not null, primary key
-#  text       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#
-
 require 'spec_helper'
 
 describe Tag do
@@ -28,4 +18,5 @@ describe Tag do
     it { should validate_uniqueness_of(:text) }
     it { should ensure_length_of(:text).is_at_least(3).is_at_most(15) }
   end
+
 end
