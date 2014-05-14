@@ -2,10 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.1.0'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-#gem 'sqlite3'
 gem 'pg'
 
 
@@ -44,6 +40,7 @@ gem 'activeadmin', github: 'gregbell/active_admin'
 
 
 gem 'rspec-rails', :group => [:test, :development]
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
