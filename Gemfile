@@ -49,3 +49,10 @@ group :test do
   gem 'guard-rspec'
   gem 'shoulda-matchers'
 end
+
+#==================== Heroku fix
+ruby '2.1.1'
+
+group :production do
+  gem 'rails_12factor'
+end
