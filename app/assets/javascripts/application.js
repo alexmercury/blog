@@ -1,6 +1,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.tagcanvas
+//= require menu
 
 $(document).ready(function(){
     $("#adm-msg").click(function() {

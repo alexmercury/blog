@@ -1,0 +1,40 @@
+.menu-button {
+  display: none;
+  visibility: hidden;
+}
+
+.menu-button:hover {
+  cursor: pointer;
+}
+
+.menu-wrapper ul {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu-wrapper ul li {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 0;
+}
+
+.menu-wrapper ul li a {
+  display: inline-block;
+  //margin: 0 10px 0 0;
+  //padding: 0;
+  color: #767676;
+  text-decoration: none;
+
+  font-size: 20px;
+}
+
+.menu-wrapper ul li a:hover{
+  color: #ffffff;
+}
+
+.menu-wrapper ul li a i {
+  text-decoration: none;
+  font-size: 30px;
+}

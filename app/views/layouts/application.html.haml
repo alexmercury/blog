@@ -2,14 +2,80 @@
 %html
   %head
     %title Blog
-    = stylesheet_link_tag    'application', :media => 'all'
+    = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
-    %script{:src => '/jquery.tagcanvas.js', :type => 'text/javascript'}
     = csrf_meta_tags
-  %body.blog
-    %header
-      = render :partial => 'base/blog_menu'
-      = render :partial => '/base/user_menu'
-    %div.blogContent
-      = yield
-  %footer
+    %meta{content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}
+  %body.wrapper
+    .wrapper-base
+      .wrapper-header.gradient-dark
+        .header-content
+          = render partial: 'shared/menu'
+      .wrapper-content
+        .content
+          content
+          =image_tag 'rails.png', height: 64
+      .wrapper-footer.gradient-grey
+        .footer-content
+          footer
+  -#  %header
+  -#    %i.fa.fa-trophy
+  -#    = render :partial => 'base/blog_menu'
+  -#    = render :partial => 'base/user_menu'
+  -#  %div.blogContent
+  -#    = yield
+  -#%footer
+      .wrapper-content
+      .wrapper-menu
+        %ul
+          %li
+            %a{:href => "#"} Home
+          %li
+            %a{:href => "#"} Support
+          %li
+            %a{:href => "#"} Blog
+          %li
+            %a{:href => "#"} About Us
+          %li
+            %a{:href => "#"} Contacts
+        .wrapper-panel
+          %span.left-top
+          %span.left-bottom
+          %span.right-top
+          %span.right-bottom
+          .wrapper-panel-content
+            %h3 Coming soon ...
+            #timer.timer
+            :javascript
+              var timer_div = document.getElementById('timer');
+              var timer_time = (new Date(2014, 8, 10) - new Date()) / 1000;
+
+              var getTimerTimeString = function(){
+                var totalSec = (--timer_time);
+
+                var hours = parseInt(totalSec / 3600);
+                var hours_str = '';
+                hours = (hours < 10 ? '0' + hours : hours).toString();
+                hours[0] != undefined ? hours_str += ''+hours[0]+'' : hours_str += '';
+                hours[1] != undefined ? hours_str += ''+hours[1]+'' : hours_str += '';
+                hours[2] != undefined ? hours_str += ''+hours[2]+'' : hours_str += '';
+                hours[3] != undefined ? hours_str += ''+hours[3]+'' : hours_str += '';
+
+                var minutes = parseInt(totalSec / 60) % 60;
+                minutes = (minutes < 10 ? '0' + minutes : minutes).toString();
+                minutes = ''+minutes[0]+''+''+minutes[1]+'';
+
+                var seconds = parseInt(totalSec) % 60;
+                seconds = (seconds < 10 ? '0' + seconds : seconds).toString();
+                seconds = ''+seconds[0]+''+''+seconds[1]+'';
+
+                var str = hours_str + ':' + minutes + ':' + seconds;
+                timer_div.innerHTML = str;
+              };
+
+              getTimerTimeString();
+
+              var timer = setInterval(getTimerTimeString, 1000);
+                .wrapper-site-content
+      .wrapper-footer
+        Hawk Server &copy; 2014

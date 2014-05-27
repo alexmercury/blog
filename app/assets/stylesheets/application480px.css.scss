@@ -1,0 +1,23 @@
+@media screen and (max-width: 480px) {
+
+  .wrapper-base {
+    width: 100%;
+    margin: 0;
+    background-color: #ced2d2;
+  }
+
+  .wrapper-content {
+    border: none;
+  }
+
+  .menu-wrapper {
+    display: none;
+    visibility: visible;
+  }
+
+  .menu-button {
+    display: inline-block;
+    visibility: visible;
+  }
+
+}
