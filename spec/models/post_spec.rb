@@ -5,7 +5,7 @@ describe Post do
   context 'Post model connection' do
     it { should have_many(:post_comments).dependent(:destroy) }
     it { should belong_to(:user) }
-    it { should have_many(:tags).through(:posts_tags) }
+    it { should have_and_belong_to_many(:tags) }
     it { should accept_nested_attributes_for(:tags) }
   end
 

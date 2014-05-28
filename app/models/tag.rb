@@ -1,10 +1,8 @@
 class Tag < ActiveRecord::Base
-  #attr_accessible :id, :cont
 
-  has_many :uniteds
-  has_many :posts, :through => :uniteds
+  has_and_belongs_to_many :posts, join_table: 'posts_tags'
 
-  validates :text,
+  validates :title,
             :presence => true,
             :length => { :minimum => 3, :maximum => 15 },
             :uniqueness => true
