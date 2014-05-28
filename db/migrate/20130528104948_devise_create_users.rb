@@ -33,6 +33,9 @@ class DeviseCreateUsers < ActiveRecord::Migration
       ## Token authenticatable
       # t.string :authentication_token
 
+      t.string :user_name
+      t.integer :post_comments_count, :default => 0
+      t.integer :posts_count, :default => 0
 
       t.timestamps
     end

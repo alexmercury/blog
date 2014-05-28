@@ -4,17 +4,10 @@ gem 'rails', '4.1.0'
 
 gem 'pg'
 
-
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
   gem 'sass-rails',   github: 'rails/sass-rails'
   gem 'coffee-rails', github: 'rails/coffee-rails'
-
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', platforms: :ruby
-
   gem 'uglifier', '>= 1.0.3'
 end
 
@@ -33,14 +26,11 @@ end
 # To use debugger
 # gem 'debugger'
 gem 'devise'
-
 gem 'kaminari'
 gem 'haml'
 gem 'activeadmin', github: 'gregbell/active_admin'
 
-
 gem 'rspec-rails', :group => [:test, :development]
-
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
@@ -48,4 +38,11 @@ group :test do
   gem 'database_cleaner'
   gem 'guard-rspec'
   gem 'shoulda-matchers'
+end
+
+#==================== Heroku fix
+ruby '2.1.1'
+
+group :production do
+  gem 'rails_12factor'
 end

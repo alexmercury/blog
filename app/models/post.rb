@@ -1,14 +1,11 @@
 class Post < ActiveRecord::Base
 
-  #attr_protected :user_id, :status, :adm_comment, :as => :blog_user
+  has_many :post_comments, dependent: :destroy
+  belongs_to :user, counter_cache: true
 
-  has_many :post_comments, :dependent => :destroy
-  belongs_to :user, :counter_cache => true
+  has_and_belongs_to_many :tags
 
-  has_many :uniteds
-  has_many :tags, :through => :uniteds
-
-  accepts_nested_attributes_for :tags, :reject_if => lambda { |a| a[:text].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :tags, :reject_if => lambda { |tag| tag[:text].blank? }, allow_destroy: true
 
   validates :title,
             :presence => true,
