@@ -10,8 +10,8 @@ describe PostComment do
   context 'PostComment db column' do
     it { should have_db_column(:post_id).of_type(:integer) }
     it { should have_db_column(:text).of_type(:text) }
-    it { should have_db_column(:created_at).of_type(:datetime).with_options(:null => false) }
-    it { should have_db_column(:updated_at).of_type(:datetime).with_options(:null => false) }
+    it { should have_db_column(:created_at).of_type(:datetime) }
+    it { should have_db_column(:updated_at).of_type(:datetime) }
     it { should have_db_column(:user_id).of_type(:integer) }
   end
 
