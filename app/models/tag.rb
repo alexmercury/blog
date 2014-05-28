@@ -6,5 +6,4 @@ class Tag < ActiveRecord::Base
             :presence => true,
             :length => { :minimum => 3, :maximum => 15 },
             :uniqueness => true
-
 end

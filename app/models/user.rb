@@ -6,8 +6,6 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  #attr_accessible :email, :password, :password_confirmation, :remember_me, :user_name
-
-  has_many :posts
-  has_many :post_comments
+  has_many :posts, counter_cache: true
+  has_many :post_comments,  counter_cache: true
 end
