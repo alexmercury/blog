@@ -1,0 +1,47 @@
+@media all and (min-width: 1641px) and (max-width: 1900px) {
+
+  ul.post-tiles li.item {
+    width: 16.6%;
+  }
+
+}
+
+@media all and (min-width: 1371px) and (max-width: 1640px) {
+
+  ul.post-tiles li.item {
+    width: 20%;
+  }
+
+}
+
+@media all and (min-width: 1101px) and (max-width: 1370px) {
+
+  ul.post-tiles li.item {
+    width: 25%;
+  }
+
+}
+
+@media all and (min-width: 838px) and (max-width: 1100px) {
+
+  ul.post-tiles li.item {
+    width: 33.3%;
+  }
+
+}
+
+@media all and (min-width: 571px) and (max-width: 837px) {
+
+  ul.post-tiles li.item {
+    width: 50%;
+  }
+
+}
+
+@media all and (min-width: 1px) and (max-width: 570px) {
+
+  ul.post-tiles li.item {
+    width: 100%;
+  }
+
+}

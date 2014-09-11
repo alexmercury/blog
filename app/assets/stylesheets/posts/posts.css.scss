@@ -1,0 +1,99 @@
+ul.post-tiles {
+  position: relative;
+  display: block;
+  margin: 10px 20px 10px 20px;
+  padding: 0;
+  list-style: none;
+
+  li.item {
+    display: block;
+    float: left;
+    width: 14.28%;
+    padding: 0;
+    margin: 0;
+    border: none;
+
+    .post-panel {
+      display: block;
+      margin: 10px;
+      padding: 0;
+      min-height: 240px;
+
+      background-color: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+
+    .post-panel:hover {
+      box-shadow: 0 0 4px #C0C0C0;
+    }
+
+  }
+
+}
+
+a, a:active, a:focus {
+  text-decoration: none;
+  border: none;
+  outline: none;
+  color: #505050;
+}
+
+
+.post-title-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0;
+  border: none;
+  margin: 0 0 10px 0;
+}
+
+.post-content {
+  display: block;
+  margin: 0 10px 0 10px;
+  word-wrap: break-word;
+  font: normal 14px Arial, Helvetica, sans-serif;
+
+  .title {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #505050;
+  }
+
+  .category {
+    font-size: 16px;
+
+    a:hover {
+      color: #339933;
+    }
+  }
+
+}
+
+.post-footer {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top: 1px solid #E0E0E0;
+}
+
+.post-footer:after {
+  display: block;
+  content: '';
+  clear: both;
+}
+
+.rating {
+  color: #0BC20B;
+  display: block;
+  float: left;
+  width: 100px;
+  height: 50px;
+  font-size: 20px;
+  line-height: 50px;
+  padding: 0;
+  margin: 0 0 0 10px;
+}

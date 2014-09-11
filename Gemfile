@@ -27,7 +27,11 @@ end
 # gem 'debugger'
 gem 'devise'
 gem 'kaminari'
+
 gem 'haml'
+
+gem 'slim', '~> 2.0.3'
+
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'rspec-rails', :group => [:test, :development]
