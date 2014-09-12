@@ -2,6 +2,7 @@
 #= require jquery_ujs
 # require jquery.tagcanvas
 # require menu
+# = require helper/visible_element
 #= require plugins/imagesloaded.pkgd.min
 #= require plugins/masonry.pkgd.min
 #= require angular/angular.min
@@ -9,26 +10,6 @@
 
 $(document).ready ->
 
-#  //console.log($('#tiles li'));
-#//    $("#adm-msg").click(function() {
-#//        if ($(".post-adm-comment").css("display") == 'none')
-#//        {
-#//            $(".post-adm-comment").show(300);
-#//        }
-#//        else
-#//        {
-#//            $(".post-adm-comment").hide(300);
-#//        }
-#//    });
-#//
-#//  $("#msg-close").click(function() {
-#//
-#//    $(".blog-massage-panel").hide(0);
-#//    $(".blog-massage").hide(0);
-#//
-#//  });
-#});
-#//
 #//$(document).ready(function(){
 #//  if( ! $('#myCanvas').tagcanvas({
 #//    textColour : '#008DF0',
@@ -41,5 +22,3 @@ $(document).ready ->
 #//    textHeight: 14
 #//  }, 'tagcloud'));
 #//});
-
-#
