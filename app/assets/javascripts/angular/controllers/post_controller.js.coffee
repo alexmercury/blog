@@ -10,6 +10,7 @@ postsController = ($scope, $http, $timeout) ->
   .success (response) ->
     $scope.posts = response
     $scope.count = $scope.posts.length
+    $('.loading ').hide()
 
   $timeout ->
     imagesLoaded $scope.posts_container, ->

@@ -1,0 +1,21 @@
+.loading
+.content-wrapper ng-app="" ng-controller='postsController'
+  ul.post-tiles#tiles
+    li.item ng-repeat="post in posts"
+      .post-panel
+        a href='#'
+          img.post-title-image ng-src='{{post.image_url}}'
+        .post-content
+          .title ng-bind='post.title'
+          .category
+            a href='#'
+              i.fa.fa-map-marker
+              |&nbsp;Movie
+          div style='height: {{post.size}}px;'
+        .post-footer
+          .rating
+            i.fa.fa-star-o
+            i.fa.fa-star-o
+            i.fa.fa-star-o
+            i.fa.fa-star-o
+            i.fa.fa-star-o

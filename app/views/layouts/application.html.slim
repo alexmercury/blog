@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    title
+      = @html_title ||= 'Rails Blog'
+    meta content='text/html; charset=UTF-8' http-equiv='Content-Type'
+    meta name='viewport' content='width=device-width, initial-scale=1'
+
+    = stylesheet_link_tag    'application', media: 'all'
+  body
+    header.header
+      /.logo Blog
+      /ul.menu
+        li Home
+        li Blog
+        li Contacts
+        li About
+
+    .site-container
+      /.tag-cloud
+        | ok
+      = yield
+
+
+    footer.footer
+      .script-content
+        = javascript_include_tag 'application'

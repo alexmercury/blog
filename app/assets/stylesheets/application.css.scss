@@ -6,3 +6,14 @@
 @import "web/footer";
 @import "posts/posts";
 @import "posts/posts_responsive";
+
+
+.loading {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 50% 50% url(image_path('spin.gif')) no-repeat #404040;
+  z-index: 9999;
+}

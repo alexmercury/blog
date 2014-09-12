@@ -1,14 +1,16 @@
 class Post < ActiveRecord::Base
 
   has_many :post_comments, dependent: :destroy
+
   belongs_to :user, counter_cache: true
+
   has_and_belongs_to_many :tags
 
-  accepts_nested_attributes_for :tags, :reject_if => lambda { |tag| tag[:text].blank? }, allow_destroy: true
+  accepts_nested_attributes_for :tags, reject_if: lambda { |tag| tag[:text].blank? }, allow_destroy: true
 
   validates :title,
             :presence => true,
-            :length => { :minimum => 5, :maximum => 30 },
+            :length => { :minimum => 5, :maximum => 255 },
             :uniqueness => true
   validates :body,
             :presence => true,

@@ -4,6 +4,8 @@ gem 'rails', '4.1.0'
 
 gem 'pg'
 
+gem 'unicorn-rails'
+
 group :assets do
   gem 'sprockets-rails', github: 'rails/sprockets-rails'
   gem 'sass-rails',   github: 'rails/sass-rails'
@@ -25,16 +27,19 @@ end
 
 # To use debugger
 # gem 'debugger'
-gem 'devise'
-gem 'kaminari'
 
-gem 'haml'
+gem 'devise'
+
+# gem 'kaminari'
+
+# gem 'haml'
 
 gem 'slim', '~> 2.0.3'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'rspec-rails', :group => [:test, :development]
+
 group :test do
   gem 'factory_girl_rails'
   gem 'capybara'

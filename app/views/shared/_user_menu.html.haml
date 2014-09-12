@@ -1,0 +1,27 @@
+
+
+
+
+
+-#- if user_signed_in?
+-#  = current_user.user_name
+-#
+-#- else
+-#%h3 Hello User
+-#= form_for(resource, as: resource_name, url: user_session_path) do |f|
+-#  %label.control-label{for: 'user_email'}
+-#    = f.email_field :email, placeholder: 'Email'
+-#  .input-prepend
+-#    %span.add-on
+-#      %label.control-label{for: 'user_password'}
+-#        %i.icon-lock
+-#    = f.password_field :password, placeholder: 'Password'
+-#  - if devise_mapping.rememberable?
+-#    %label
+-#      = f.check_box :remember_me
+-#      Remember me
+-#  .text-right
+-#    = f.submit 'Sign In'
+-#
+-#.modal-footer
+-#= link_to new_user_registration_url, class: 'btn'

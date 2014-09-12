@@ -1,11 +1,12 @@
 class PostsController < ApplicationController
  
- before_filter :authenticate_user!, :except => [:show, :index]
- before_filter :add_all_tag
+ # before_filter :authenticate_user!, :except => [:show, :index]
+ # before_filter :add_all_tag
 
   # GET /posts
   def index
     @posts = Post.index_posts.includes(:user).page(params[:page]).per(5)
+    @html_title = 'All Posts'
     respond_to do |format|
       format.html # index.html
     end
@@ -122,6 +123,34 @@ class PostsController < ApplicationController
  # User panel
   def panel
     @posts = current_user.posts
+  end
+
+ def ng_post
+   sleep 10
+   @posts = []
+   i = 0
+   20.times do
+     i += 1
+     @posts << { title: ('Long title long long long long lo long ' + i.to_s), image_url: view_context.image_path("rails_img/#{rand(1..13)}.png"), size: rand(100..250)}
+   end
+
+   render json: @posts
+ end
+
+  def ng_post_add
+
+    p ('*')*20
+
+    p params[:count]
+
+    @posts = []
+    i = 0
+    20.times do
+      i += 1
+      @posts << { title: ('Long title long long long long lo long ' + i.to_s), image_url: view_context.image_path("rails_img/#{rand(1..13)}.png"), size: rand(100..250)}
+    end
+
+    render json: @posts
   end
 
   def add_all_tag
